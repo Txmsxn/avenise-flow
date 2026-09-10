@@ -13,7 +13,7 @@ export function Contact() {
     <section id="kontakt" className="mx-auto w-full max-w-4xl px-6 py-24 md:py-32">
       <div className="rounded-3xl border border-white/[0.06] bg-[#121723]/60 p-8 backdrop-blur-xl md:p-12">
         <div className="mb-10 text-center">
-          <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#00D2FF]">
+          <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-[#00D2FF]">
             Kontakt
           </span>
           <h2 className="mt-5 text-3xl font-extrabold tracking-tighter text-white sm:text-4xl">

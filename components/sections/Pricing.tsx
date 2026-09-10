@@ -6,7 +6,7 @@ export function Pricing() {
   return (
     <section id="cennik" className="section">
       <div className="mb-14 flex flex-col items-center gap-4 text-center">
-        <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#00D2FF]">
+        <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-[#00D2FF]">
           Cennik
         </span>
         <h2 className="max-w-2xl text-3xl font-extrabold tracking-tighter text-white sm:text-4xl">

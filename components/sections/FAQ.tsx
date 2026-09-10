@@ -33,7 +33,7 @@ export function FAQ() {
   return (
     <section id="faq" className="mx-auto w-full max-w-3xl px-6 py-24 md:py-32">
       <div className="mb-12 flex flex-col items-center gap-4 text-center">
-        <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#00D2FF]">
+        <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-[#00D2FF]">
           FAQ
         </span>
         <h2 className="text-3xl font-extrabold tracking-tighter text-white sm:text-4xl">
