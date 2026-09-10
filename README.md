@@ -35,16 +35,14 @@ tailwind.config.ts  # kolory bg/surface/accent, gradient, cienie glow
 
 ## Logo
 
-Oryginalne pliki marki:
+Pliki marki (PNG z **przezroczystym tłem**):
 - `public/logo.png` — pełny logotyp (znak + „AVENISE FLOW"), używany w nav i stopce
 - `public/logo-mark.png` — sam znak „A"
 - `app/icon.png` — favicon (z `logo-mark.png`)
 - `logo.jpg` — plik źródłowy (czarne tło) w katalogu głównym
 
-Pliki mają czarne tło (brak kanału alfa), dlatego komponent
-[Logo.tsx](components/ui/Logo.tsx) renderuje je z `mix-blend-screen` — czerń
-znika na ciemnym tle strony. Przy przebudowie/kadrowaniu użyto skryptu
-`System.Drawing` (kadr do zawartości).
+Tło wycięte skryptem `System.Drawing` (kadr do zawartości + alfa z jasności
+piksela). [Logo.tsx](components/ui/Logo.tsx) używa `next/image` bez blend-mode.
 
 ## Edycja treści
 
