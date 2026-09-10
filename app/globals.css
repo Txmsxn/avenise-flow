@@ -32,11 +32,11 @@
   h1,
   h2,
   h3 {
-    @apply font-display font-extrabold leading-[1.03] tracking-tight text-white;
+    @apply font-display font-extrabold leading-tight tracking-tight text-white;
     text-wrap: balance;
   }
   h1 {
-    @apply leading-[0.95];
+    @apply leading-[1.1];
   }
 }
 

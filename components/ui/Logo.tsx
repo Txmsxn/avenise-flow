@@ -8,7 +8,9 @@ export function LogoMark({ className }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 240 240"
-      className={cn("h-full w-full", className)}
+      width="32"
+      height="32"
+      className={cn("block shrink-0", className)}
       role="img"
       aria-label="AVENISE FLOW"
     >
@@ -54,7 +56,7 @@ export function Logo({
 }) {
   return (
     <span className={cn("flex items-center gap-3 text-white", className)}>
-      <LogoMark className="h-8 w-8" />
+      <LogoMark className="h-8 w-auto" />
       {withText && (
         <span className="text-base font-bold uppercase tracking-[0.18em] leading-none">
           Avenise <span className="text-[#00D2FF]">Flow</span>

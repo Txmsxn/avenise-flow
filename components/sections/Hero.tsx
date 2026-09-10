@@ -10,7 +10,7 @@ export function Hero() {
         className="pointer-events-none absolute -right-40 -top-40 -z-10 h-[640px] w-[640px] rounded-full bg-[radial-gradient(circle_at_center,rgba(0,210,255,0.16),rgba(108,92,231,0.08)_45%,transparent_70%)] blur-2xl"
       />
 
-      <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
+      <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
         {/* Badge */}
         <span className="inline-flex items-center gap-2.5 rounded-full border border-white/[0.1] bg-white/[0.03] px-4 py-1.5 font-display text-xs font-bold uppercase tracking-wide text-slate-200">
           <span className="relative flex h-2 w-2">
@@ -21,7 +21,7 @@ export function Hero() {
         </span>
 
         {/* H1 */}
-        <h1 className="mt-6 text-balance font-display text-5xl font-extrabold uppercase leading-[0.95] tracking-tight text-white md:text-7xl lg:text-8xl">
+        <h1 className="mt-6 text-balance font-display text-3xl font-extrabold uppercase leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
           Łączę precyzyjny kod z designem, który{" "}
           <span className="bg-gradient-to-r from-[#00E5FF] to-[#8B5CF6] bg-clip-text text-transparent">
             generuje klientów

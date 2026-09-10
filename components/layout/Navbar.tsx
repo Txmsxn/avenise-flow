@@ -33,7 +33,7 @@ export function Navbar() {
           aria-label="AVENISE FLOW — strona główna"
           className="flex items-center gap-3"
         >
-          <LogoMark className="h-8 w-8" />
+          <LogoMark className="h-8 w-auto" />
           <span className="text-sm font-bold uppercase tracking-[0.2em] text-white">
             Avenise <span className="text-[#00D2FF]">Flow</span>
           </span>
