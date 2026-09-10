@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Github, Linkedin, Mail } from "lucide-react";
+import { Facebook, Mail } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { CONTACT } from "@/lib/constants";
 
@@ -11,9 +11,11 @@ const QUICK_LINKS = [
 ];
 
 const SOCIALS = [
-  { label: "Facebook", href: "#", icon: Facebook },
-  { label: "GitHub", href: "#", icon: Github },
-  { label: "LinkedIn", href: "#", icon: Linkedin },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61594448393238",
+    icon: Facebook,
+  },
 ];
 
 export function Footer() {
@@ -63,14 +65,16 @@ export function Footer() {
           </a>
           <div className="mt-4 flex gap-2.5">
             {SOCIALS.map(({ label, href, icon: Icon }) => (
-              <Link
+              <a
                 key={label}
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={label}
                 className="grid h-9 w-9 place-items-center rounded-lg border border-white/[0.08] bg-white/[0.02] text-slate-400 transition-colors hover:border-[#00D2FF]/40 hover:text-white"
               >
                 <Icon className="h-4 w-4" />
-              </Link>
+              </a>
             ))}
           </div>
         </div>
