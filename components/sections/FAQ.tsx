@@ -23,7 +23,7 @@ const ITEMS = [
   },
   {
     q: "Czy pomagasz w doborze i podpięciu domeny oraz hostingu?",
-    a: "Tak. Doradzamy w wyborze domeny, konfigurujemy DNS i wdrażamy stronę na wydajnym hostingu (domyślnie Vercel). Możesz zostać przy swoim dostawcy albo przekazać nam pełną opiekę techniczną.",
+    a: "Tak. Doradzamy w wyborze domeny, konfigurujemy DNS i wdrażamy stronę na wydajnym hostingu klasy premium — z globalnym CDN, certyfikatem SSL i automatycznymi kopiami zapasowymi. Możesz zostać przy swoim dostawcy albo przekazać nam pełną opiekę techniczną.",
   },
 ];
 
