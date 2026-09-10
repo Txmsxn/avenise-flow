@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #07090e;
+  --surface: #0e121b;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg text-slate-300 antialiased;
+    /* Asymmetric ambient glow — jedno miękkie światło po prawej */
+    background-image: radial-gradient(
+      42rem 42rem at 88% 8%,
+      rgba(0, 210, 255, 0.1),
+      rgba(108, 92, 231, 0.06) 45%,
+      transparent 70%
+    );
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  ::selection {
+    background: rgba(0, 210, 255, 0.22);
+  }
+
+  /* Wyrazista, techniczna typografia nagłówków */
+  h1,
+  h2,
+  h3 {
+    @apply font-extrabold tracking-tight text-white;
+    text-wrap: balance;
+  }
+  h1 {
+    @apply font-black tracking-tighter;
+  }
+  h2 {
+    @apply tracking-tighter;
+  }
+}
+
+@layer components {
+  .glass {
+    background-color: rgba(14, 18, 27, 0.55);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+  }
+
+  .text-gradient {
+    @apply bg-accent-gradient bg-clip-text text-transparent;
+  }
+
+  /* Elegancki CTA: ciemny środek, świecący gradientowy border, glass na hover */
+  .btn-outline-glow {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full
+      px-7 py-3.5 text-sm font-bold text-white transition-all duration-300;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, rgba(0, 229, 255, 0.95), rgba(139, 92, 246, 0.95)) border-box;
+    border: 1px solid transparent;
+    box-shadow: 0 0 0 0 rgba(0, 210, 255, 0);
+  }
+  .btn-outline-glow:hover {
+    background:
+      linear-gradient(rgba(14, 18, 27, 0.6), rgba(14, 18, 27, 0.6)) padding-box,
+      linear-gradient(120deg, rgba(0, 229, 255, 1), rgba(139, 92, 246, 1)) border-box;
+    box-shadow: 0 0 32px -8px rgba(0, 210, 255, 0.4);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+
+  .btn-quiet {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border
+      border-white/[0.1] bg-white/[0.02] px-7 py-3.5 text-sm font-bold
+      text-slate-200 transition-colors duration-300 hover:bg-white/[0.06]
+      hover:text-white;
+  }
+
+  .section {
+    @apply mx-auto w-full max-w-6xl px-6 py-24 md:py-32;
+  }
+
+  /* Zgodność wsteczna dla pozostałych sekcji */
+  .btn-gradient {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full
+      px-7 py-3.5 text-sm font-bold text-white transition-all duration-300;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, rgba(0, 229, 255, 0.95), rgba(139, 92, 246, 0.95)) border-box;
+    border: 1px solid transparent;
+  }
+  .btn-gradient:hover {
+    box-shadow: 0 0 32px -8px rgba(0, 210, 255, 0.4);
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border
+      border-white/[0.1] bg-white/[0.02] px-7 py-3.5 text-sm font-bold
+      text-slate-200 transition-colors duration-300 hover:bg-white/[0.06]
+      hover:text-white;
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 40%, #000 30%, transparent 100%);
+    mask-image: radial-gradient(ellipse 60% 55% at 50% 40%, #000 30%, transparent 100%);
+  }
+}

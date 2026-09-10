@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="AveniseFlow">
+  <defs>
+    <linearGradient id="af-mark" x1="20" y1="220" x2="220" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00D2FF" />
+      <stop offset="1" stop-color="#7B2CBF" />
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#af-mark)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M42 206 L120 42 L198 206" />
+    <path d="M74 150 q 16 -30 31 -15 q 15 15 31 0 q 16 -15 31 6" />
+  </g>
+</svg>
