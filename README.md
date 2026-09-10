@@ -15,6 +15,22 @@ npm run dev
 
 Aplikacja: http://localhost:3000
 
+## Formularz kontaktowy (Resend)
+
+Zgłoszenia z formularza (`app/api/contact/route.ts`) idą e-mailem na
+`kontakt@avenise-flow.pl` przez [Resend](https://resend.com).
+
+1. Załóż konto na resend.com, wygeneruj klucz w **API Keys**.
+2. Skopiuj `.env.example` → `.env.local` i wklej `RESEND_API_KEY=...`.
+3. Na Vercel: **Project → Settings → Environment Variables** → dodaj `RESEND_API_KEY`
+   (Production + Preview), zrób redeploy.
+4. Domyślnie nadawcą jest testowy adres Resend (`onboarding@resend.dev`). Aby
+   wysyłać z `avenise-flow.pl`, zweryfikuj domenę w Resend (Domains → rekordy DNS)
+   i ustaw `CONTACT_FROM=Formularz <formularz@avenise-flow.pl>`.
+
+Bez `RESEND_API_KEY` endpoint zwraca 503, a formularz pokazuje komunikat z prośbą
+o kontakt bezpośredni — reszta strony działa normalnie.
+
 ## Struktura
 
 ```
