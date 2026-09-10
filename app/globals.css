@@ -28,18 +28,15 @@
     background: rgba(0, 210, 255, 0.22);
   }
 
-  /* Wyrazista, techniczna typografia nagłówków */
+  /* Extended Display — nagłówki na foncie Syne */
   h1,
   h2,
   h3 {
-    @apply font-extrabold tracking-tight text-white;
+    @apply font-display font-extrabold leading-[1.03] tracking-tight text-white;
     text-wrap: balance;
   }
   h1 {
-    @apply font-black tracking-tighter;
-  }
-  h2 {
-    @apply tracking-tighter;
+    @apply leading-[0.95];
   }
 }
 

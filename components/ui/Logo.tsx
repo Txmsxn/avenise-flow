@@ -1,8 +1,8 @@
 import { cn } from "@/lib/cn";
 
 /**
- * Znak marki AveniseFlow — stylizowane „A" z falą (tylda),
- * gradient #00D2FF → #7B2CBF. Odwzorowanie wektorowe dostarczonego logo.
+ * Znak marki AVENISE FLOW — stylizowane „A" z łukiem/falą,
+ * gradient #00D2FF → #7B2CBF. Odwzorowanie wektorowe logo z materiałów marki.
  */
 export function LogoMark({ className }: { className?: string }) {
   return (
@@ -10,28 +10,41 @@ export function LogoMark({ className }: { className?: string }) {
       viewBox="0 0 240 240"
       className={cn("h-full w-full", className)}
       role="img"
-      aria-label="AveniseFlow"
+      aria-label="AVENISE FLOW"
     >
       <defs>
-        <linearGradient id="af-mark" x1="20" y1="220" x2="220" y2="40" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="af-mark"
+          x1="40"
+          y1="210"
+          x2="205"
+          y2="70"
+          gradientUnits="userSpaceOnUse"
+        >
           <stop offset="0" stopColor="#00D2FF" />
+          <stop offset="0.55" stopColor="#3E8BE6" />
           <stop offset="1" stopColor="#7B2CBF" />
         </linearGradient>
       </defs>
       <g
         fill="none"
         stroke="url(#af-mark)"
-        strokeWidth="26"
+        strokeWidth="23"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M42 206 L120 42 L198 206" />
-        <path d="M74 150 q 16 -30 31 -15 q 15 15 31 0 q 16 -15 31 6" />
+        {/* Litera A */}
+        <path d="M46 206 L120 40 L194 206" />
+        {/* Łuk / fala */}
+        <path d="M78 156 q 12 -24 26 -11 q 13 13 26 1 q 15 -13 30 7" />
       </g>
     </svg>
   );
 }
 
+/**
+ * Pełny logotyp: znak + napis „AVENISE" (biały) „FLOW" (błękit #00D2FF).
+ */
 export function Logo({
   className,
   withText = true,
@@ -40,13 +53,11 @@ export function Logo({
   withText?: boolean;
 }) {
   return (
-    <span className={cn("flex items-center gap-2.5 text-white", className)}>
-      <span className="grid h-9 w-9 place-items-center rounded-xl bg-white/[0.04] ring-1 ring-white/[0.08]">
-        <LogoMark className="h-6 w-6" />
-      </span>
+    <span className={cn("flex items-center gap-3 text-white", className)}>
+      <LogoMark className="h-8 w-8" />
       {withText && (
-        <span className="font-display text-base font-bold tracking-[0.14em]">
-          AVENISE <span className="text-gradient">FLOW</span>
+        <span className="text-base font-bold uppercase tracking-[0.18em] leading-none">
+          Avenise <span className="text-[#00D2FF]">Flow</span>
         </span>
       )}
     </span>
