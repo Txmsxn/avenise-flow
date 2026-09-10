@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Facebook, Github, Linkedin, Mail } from "lucide-react";
-import { LogoMark } from "@/components/ui/Logo";
+import { Logo } from "@/components/ui/Logo";
 import { CONTACT } from "@/lib/constants";
 
 const QUICK_LINKS = [
@@ -22,11 +22,8 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-[1.6fr_1fr_1fr]">
         {/* Marka */}
         <div>
-          <Link href="#" aria-label="AVENISE FLOW" className="flex items-center gap-3">
-            <LogoMark className="h-8 w-auto" />
-            <span className="text-sm font-bold uppercase tracking-[0.2em] text-white">
-              Avenise <span className="text-[#00D2FF]">Flow</span>
-            </span>
+          <Link href="#" aria-label="AVENISE FLOW" className="flex items-center">
+            <Logo className="h-8" />
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
             AveniseFlow — Studio kreacji cyfrowej i nowoczesnych stron www.

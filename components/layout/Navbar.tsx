@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants";
-import { LogoMark } from "@/components/ui/Logo";
+import { Logo } from "@/components/ui/Logo";
 import { cn } from "@/lib/cn";
 
 export function Navbar() {
@@ -28,15 +28,8 @@ export function Navbar() {
       )}
     >
       <nav className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
-        <Link
-          href="#"
-          aria-label="AVENISE FLOW — strona główna"
-          className="flex items-center gap-3"
-        >
-          <LogoMark className="h-8 w-auto" />
-          <span className="text-sm font-bold uppercase tracking-[0.2em] text-white">
-            Avenise <span className="text-[#00D2FF]">Flow</span>
-          </span>
+        <Link href="#" aria-label="AVENISE FLOW — strona główna" className="flex items-center">
+          <Logo className="h-7 sm:h-8" />
         </Link>
 
         <ul className="hidden items-center gap-10 md:flex">
