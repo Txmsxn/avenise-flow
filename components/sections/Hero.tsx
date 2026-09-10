@@ -21,9 +21,9 @@ export function Hero() {
         </span>
 
         {/* H1 */}
-        <h1 className="mt-6 text-balance font-display text-3xl font-extrabold uppercase leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
+        <h1 className="mt-6 text-balance text-3xl font-extrabold leading-[1.2] tracking-tight text-white sm:text-4xl lg:text-5xl">
           Łączę precyzyjny kod z designem, który{" "}
-          <span className="bg-gradient-to-r from-[#00E5FF] to-[#8B5CF6] bg-clip-text text-transparent">
+          <span className="inline bg-gradient-to-r from-[#00E5FF] to-[#8B5CF6] bg-clip-text text-transparent">
             generuje klientów
           </span>
           .

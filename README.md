@@ -35,14 +35,16 @@ tailwind.config.ts  # kolory bg/surface/accent, gradient, cienie glow
 
 ## Logo
 
-Znak marki jest odwzorowany wektorowo w [components/ui/Logo.tsx](components/ui/Logo.tsx)
-(+ `public/logo.svg`, `app/icon.svg` jako favicon). Używa gradientu marki, więc
-skaluje się bez utraty jakości i działa w dark mode.
+Oryginalne pliki marki:
+- `public/logo.png` — pełny logotyp (znak + „AVENISE FLOW"), używany w nav i stopce
+- `public/logo-mark.png` — sam znak „A"
+- `app/icon.png` — favicon (z `logo-mark.png`)
+- `logo.jpg` — plik źródłowy (czarne tło) w katalogu głównym
 
-Jeśli chcesz użyć oryginalnych plików rastrowych:
-1. wrzuć je do `public/` (np. `public/logo-mark.png`, `public/logo-full.png`),
-2. w `components/ui/Logo.tsx` podmień `<LogoMark />` na
-   `<Image src="/logo-mark.png" width={36} height={36} alt="AveniseFlow" />`.
+Pliki mają czarne tło (brak kanału alfa), dlatego komponent
+[Logo.tsx](components/ui/Logo.tsx) renderuje je z `mix-blend-screen` — czerń
+znika na ciemnym tle strony. Przy przebudowie/kadrowaniu użyto skryptu
+`System.Drawing` (kadr do zawartości).
 
 ## Edycja treści
 
