@@ -14,8 +14,8 @@ export function Hero() {
         {/* Badge */}
         <span className="inline-flex items-center gap-2.5 rounded-full border border-white/[0.1] bg-white/[0.03] px-4 py-1.5 font-display text-xs font-bold uppercase tracking-wide text-slate-200">
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00D2FF] opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00D2FF]" />
           </span>
           Dedykowane strony firmowe &amp; narzędzia www
         </span>

@@ -30,17 +30,12 @@ export function Navbar() {
       <nav className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
         <Link
           href="#"
-          aria-label="AveniseFlow — strona główna"
+          aria-label="AVENISE FLOW — strona główna"
           className="flex items-center gap-3"
         >
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-white/[0.03] ring-1 ring-white/[0.08]">
-            <LogoMark className="h-5 w-5" />
-          </span>
-          <span className="text-sm font-semibold tracking-[0.22em] text-white">
-            AVENISE{" "}
-            <span className="bg-gradient-to-r from-[#00E5FF] to-[#8B5CF6] bg-clip-text text-transparent">
-              FLOW
-            </span>
+          <LogoMark className="h-8 w-8" />
+          <span className="text-sm font-bold uppercase tracking-[0.2em] text-white">
+            Avenise <span className="text-[#00D2FF]">Flow</span>
           </span>
         </Link>
 

@@ -22,15 +22,10 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-[1.6fr_1fr_1fr]">
         {/* Marka */}
         <div>
-          <Link href="#" aria-label="AveniseFlow" className="flex items-center gap-3">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-white/[0.03] ring-1 ring-white/[0.08]">
-              <LogoMark className="h-5 w-5" />
-            </span>
-            <span className="text-sm font-semibold tracking-[0.22em] text-white">
-              AVENISE{" "}
-              <span className="bg-gradient-to-r from-[#00E5FF] to-[#8B5CF6] bg-clip-text text-transparent">
-                FLOW
-              </span>
+          <Link href="#" aria-label="AVENISE FLOW" className="flex items-center gap-3">
+            <LogoMark className="h-8 w-8" />
+            <span className="text-sm font-bold uppercase tracking-[0.2em] text-white">
+              Avenise <span className="text-[#00D2FF]">Flow</span>
             </span>
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
