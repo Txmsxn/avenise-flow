@@ -110,7 +110,7 @@ export const TECHNOLOGIES = [
   "Figma",
   "Framer Motion",
   "Sanity CMS",
-  "Vercel",
+  "Cloudflare",
 ];
 
 export const TESTIMONIALS = [
@@ -190,7 +190,7 @@ export const FAQ = [
   },
   {
     q: "Co z hostingiem i utrzymaniem?",
-    a: "Domyślnie wdrażamy na Vercel. Oferujemy również pakiety opieki: aktualizacje, monitoring, kopie zapasowe i rozwój strony.",
+    a: "Wdrażamy na wydajnym hostingu klasy premium — globalny CDN, certyfikat SSL i automatyczne kopie zapasowe w cenie. Oferujemy też pakiety opieki: aktualizacje, monitoring i rozwój strony.",
   },
   {
     q: "Jak wygląda płatność?",
@@ -199,9 +199,9 @@ export const FAQ = [
 ];
 
 export const CONTACT = {
-  email: "kontakt@aveniseflow.pl",
+  email: "kontakt@avenise-flow.pl",
   phone: "+48 500 000 000",
-  city: "Warszawa, Polska",
+  city: "Poznań, Polska",
 };
 
 export const SOCIALS = [
