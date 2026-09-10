@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Syne } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteChrome } from "@/components/layout/SiteChrome";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin", "latin-ext"],
   variable: "--font-sans",
-  display: "swap",
-});
-
-const syne = Syne({
-  subsets: ["latin", "latin-ext"],
-  weight: ["700", "800"],
-  variable: "--font-display",
   display: "swap",
 });
 
@@ -42,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pl" className={`${jakarta.variable} ${syne.variable}`}>
+    <html lang="pl" className={jakarta.variable}>
       <body className="min-h-screen font-sans">
         <SiteChrome>{children}</SiteChrome>
       </body>
