@@ -7,7 +7,7 @@ import { cn } from "@/lib/cn";
 const ITEMS = [
   {
     q: "Ile kosztuje dedykowana strona w AveniseFlow?",
-    a: "Ceny pełnych stron firmowych pisanych w czystym kodzie (Next.js/Tailwind) zaczynają się od 800 zł. Nie tworzymy masowych, powolnych wizytówek – każdy projekt jest kodowany indywidualnie pod kątem szybkości i konwersji klientów.",
+    a: "Ceny pełnych stron firmowych pisanych w czystym kodzie (Next.js/Tailwind) zaczynają się od 500 zł. Nie tworzymy masowych, powolnych wizytówek – każdy projekt jest kodowany indywidualnie pod kątem szybkości i konwersji klientów.",
   },
   {
     q: "Dlaczego warto wybrać dedykowany kod zamiast tradycyjnego WordPressa?",

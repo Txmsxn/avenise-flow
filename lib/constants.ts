@@ -137,7 +137,7 @@ export const TESTIMONIALS = [
 export const PRICING_PLANS = [
   {
     name: "Strona Firmowa",
-    price: "800 - 1 500 PLN",
+    price: "od 500 zł",
     description: "Dedykowana, szybka strona dla biznesu w czystym kodzie.",
     features: [
       "Nowoczesny stack (Next.js / Tailwind CSS)",
@@ -150,7 +150,7 @@ export const PRICING_PLANS = [
   },
   {
     name: "Serwis & Aplikacja Web",
-    price: "od 1 600 PLN",
+    price: "od 1 600 zł",
     description: "Rozbudowane systemy, bazy danych i dedykowane narzędzia.",
     features: [
       "Wszystko co w Stronie Firmowej",

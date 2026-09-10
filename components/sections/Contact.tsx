@@ -2,7 +2,7 @@ import { ArrowRight, Mail, MapPin } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
 
 const SCOPE_OPTIONS = [
-  "Dedykowana Strona Firmowa (800 - 1500 PLN)",
+  "Dedykowana Strona Firmowa (od 500 PLN)",
   "Rozbudowany Serwis / Aplikacja Web (od 1600 PLN)",
   "Identyfikacja Wizualna / Logo / Grafika (od 300 PLN)",
   "Inne rozwiązanie do uzgodnienia",
