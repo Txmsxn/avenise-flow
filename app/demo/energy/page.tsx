@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Sun, Leaf, Wallet, TrendingDown, Zap, ArrowRight, Plus } from "lucide-react";
+import { Sun, Leaf, Wallet, TrendingDown, Zap, ArrowRight, Plus, ClipboardCheck, Ruler, Wrench, FileCheck } from "lucide-react";
 import { DemoTopBar } from "@/components/demo/DemoTopBar";
 import { useT, useLanguage } from "@/lib/language";
 
@@ -40,6 +40,19 @@ const COPY = {
     statInvest: "szac. inwestycja",
     paybackUnit: "lat",
     simCta: "Zamów bezpłatny audyt",
+    processTitle: "Jak wygląda wdrożenie",
+    process: [
+      { icon: ClipboardCheck, t: "Audyt", d: "Analiza zużycia energii i stanu dachu — na miejscu lub zdalnie ze zdjęć." },
+      { icon: Ruler, t: "Projekt instalacji", d: "Dobór mocy, paneli i falownika pod Twoje zużycie i budżet." },
+      { icon: Wrench, t: "Montaż", d: "Ekipa własna, montaż w 1–2 dni, bez ingerencji w konstrukcję dachu." },
+      { icon: FileCheck, t: "Zgłoszenie i odbiór", d: "Formalności z zakładem energetycznym i uruchomienie bierzemy na siebie." },
+    ],
+    projectsTitle: "Zrealizowane instalacje",
+    projects: [
+      { n: "Dom jednorodzinny, 8.4 kWp", d: "Podkarpacie · redukcja rachunku o 92%" },
+      { n: "Hala magazynowa, 49.6 kWp", d: "Wielkopolska · zwrot w 4.2 roku" },
+      { n: "Gospodarstwo rolne, 24 kWp + pompa ciepła", d: "Lubelskie · pełna autonomia energetyczna latem" },
+    ],
     faqTitle: "Najczęstsze pytania",
     faq: [
       { q: "Czy mogę skorzystać z dofinansowania?", a: "Tak — pomagamy skompletować wniosek o dofinansowanie (np. Mój Prąd) oraz ulgę termomodernizacyjną. Większość klientów odzyskuje 20–40% kosztów instalacji." },
@@ -79,6 +92,19 @@ const COPY = {
     statInvest: "est. investment",
     paybackUnit: "years",
     simCta: "Request a free audit",
+    processTitle: "How installation works",
+    process: [
+      { icon: ClipboardCheck, t: "Audit", d: "We assess your energy use and roof condition — on site or remotely from photos." },
+      { icon: Ruler, t: "System design", d: "We size the panels and inverter to your consumption and budget." },
+      { icon: Wrench, t: "Installation", d: "Our own crew installs in 1–2 days, with no impact on your roof structure." },
+      { icon: FileCheck, t: "Grid approval & startup", d: "We handle the grid operator paperwork and switch-on for you." },
+    ],
+    projectsTitle: "Completed installations",
+    projects: [
+      { n: "Single-family home, 8.4 kWp", d: "Podkarpacie region · 92% lower bill" },
+      { n: "Warehouse, 49.6 kWp", d: "Wielkopolska region · 4.2-year payback" },
+      { n: "Farm, 24 kWp + heat pump", d: "Lubelskie region · full energy self-sufficiency in summer" },
+    ],
     faqTitle: "Frequently asked questions",
     faq: [
       { q: "Can I get a government subsidy?", a: "Yes — we help complete the subsidy application (e.g. \"Mój Prąd\") and the thermal modernization tax relief. Most clients recover 20–40% of installation costs." },
@@ -220,6 +246,45 @@ export default function EcoPulseDemo() {
           <a href="#kontakt" className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 to-sky-500 px-6 py-3 text-sm font-semibold text-white">
             {t.simCta} <ArrowRight className="h-4 w-4" />
           </a>
+        </div>
+      </section>
+
+      {/* Proces wdrożenia */}
+      <section className="px-6 py-14">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900">{t.processTitle}</h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {t.process.map(({ icon: Icon, t: title, d }, i) => (
+              <div key={title} className="rounded-2xl border border-white/50 bg-white/45 p-5 backdrop-blur-xl">
+                <div className="flex items-center justify-between">
+                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/70">
+                    <Icon className="h-5 w-5 text-sky-600" />
+                  </span>
+                  <span className="text-xl font-bold text-slate-300">{String(i + 1).padStart(2, "0")}</span>
+                </div>
+                <h3 className="mt-3 text-sm font-bold text-slate-900">{title}</h3>
+                <p className="mt-1 text-xs leading-relaxed text-slate-600">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Realizacje */}
+      <section id="realizacje" className="px-6 py-14">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900">{t.projectsTitle}</h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {t.projects.map((p) => (
+              <div key={p.n} className="overflow-hidden rounded-2xl border border-white/50 bg-white/45 backdrop-blur-xl">
+                <div className="h-32 bg-gradient-to-br from-amber-200 via-sky-200 to-violet-200" />
+                <div className="p-5">
+                  <h3 className="text-sm font-bold text-slate-900">{p.n}</h3>
+                  <p className="mt-1 text-xs text-slate-600">{p.d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

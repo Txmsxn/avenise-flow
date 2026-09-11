@@ -55,6 +55,19 @@ const COPY = {
       ["04", "Wykonanie w pracowni", "Mebel powstaje ręcznie, etap po etapie, z kontrolą jakości przy każdym."],
       ["05", "Dostawa i montaż", "Transportujemy i montujemy na miejscu, z instrukcją pielęgnacji drewna."],
     ],
+    materialsTitle: "Materiały",
+    materials: [
+      ["Dąb francuski", "Olejowany ręcznie, podkreśla naturalny rysunek słojów. Baza kolekcji ROND i LINEA."],
+      ["Orzech amerykański", "Ciemny, gęsty słój — wybór do mebli reprezentacyjnych i gabinetowych."],
+      ["Stal patynowana", "Nogi i stelaże, ręcznie oksydowane dla matowego, jednolitego wykończenia."],
+      ["Marmur Carrara", "Blaty i detale kamienne, cięte i polerowane na zamówienie."],
+    ],
+    reviewsTitle: "Opinie klientów",
+    reviews: [
+      { q: "Stół LINEA czekał na wykonanie 10 tygodni, ale różnica względem sklepowych mebli jest ogromna. Warto.", n: "Aleksandra W." },
+      { q: "Regał zaprojektowany dokładnie pod wnękę w salonie co do milimetra. Kontakt z pracownią na każdym etapie.", n: "Michał S." },
+      { q: "Fotel MASSA robiony na mój wzrost i ulubioną tapicerkę. Rzemiosło, które widać w każdym detalu.", n: "Joanna K." },
+    ],
     footerTagline: "Atelier meblowe",
     footerAddress: ["ul. Mokotowska 4", "00-640 Warszawa"],
     footerRights: "© 2026 Lumière",
@@ -100,6 +113,19 @@ const COPY = {
       ["03", "Material selection", "You choose the wood species, finish and hardware — and see samples in person."],
       ["04", "Made in the workshop", "The piece is made by hand, step by step, with quality control at every stage."],
       ["05", "Delivery & installation", "We deliver and install on site, with wood-care instructions."],
+    ],
+    materialsTitle: "Materials",
+    materials: [
+      ["French oak", "Hand-oiled to bring out the natural grain. The base of the ROND and LINEA collections."],
+      ["American walnut", "Dark, dense grain — the choice for statement and study furniture."],
+      ["Patinated steel", "Legs and frames, hand-oxidized for a matte, uniform finish."],
+      ["Carrara marble", "Tabletops and stone details, cut and polished to order."],
+    ],
+    reviewsTitle: "Client reviews",
+    reviews: [
+      { q: "The LINEA table took 10 weeks to make, but the difference from store furniture is enormous. Worth it.", n: "Aleksandra W." },
+      { q: "The shelving was designed to fit our living room alcove down to the millimeter. In touch with the workshop at every stage.", n: "Michał S." },
+      { q: "The MASSA armchair was made to my height and favorite upholstery. Craftsmanship visible in every detail.", n: "Joanna K." },
     ],
     footerTagline: "Furniture atelier",
     footerAddress: ["4 Mokotowska St", "00-640 Warsaw"],
@@ -237,6 +263,36 @@ export default function LumiereDemo() {
                 <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#111111]/40">{n}</div>
                 <div className="mt-2 text-sm font-bold uppercase">{title}</div>
                 <p className="mt-2 text-xs leading-relaxed text-[#111111]/60">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Materiały */}
+      <section className="border-b border-black">
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <h2 className="text-2xl font-black uppercase tracking-tight">{t.materialsTitle}</h2>
+          <div className="mt-8 grid gap-0 border-l border-t border-black sm:grid-cols-2">
+            {t.materials.map(([n, d]) => (
+              <div key={n} className="border-b border-r border-black p-6">
+                <div className="text-sm font-bold uppercase tracking-[0.1em]">{n}</div>
+                <p className="mt-2 text-xs leading-relaxed text-[#111111]/60">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Opinie */}
+      <section className="border-b border-black">
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <h2 className="text-2xl font-black uppercase tracking-tight">{t.reviewsTitle}</h2>
+          <div className="mt-8 grid gap-8 border-t border-black pt-8 md:grid-cols-3">
+            {t.reviews.map((r) => (
+              <div key={r.n}>
+                <p className="text-sm leading-relaxed">"{r.q}"</p>
+                <div className="mt-4 text-xs font-bold uppercase tracking-[0.1em] text-[#111111]/50">{r.n}</div>
               </div>
             ))}
           </div>
