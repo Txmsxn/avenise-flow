@@ -1,14 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { Facebook, Mail } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { CONTACT } from "@/lib/constants";
-
-const QUICK_LINKS = [
-  { label: "Usługi", href: "#uslugi" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Kontakt", href: "#kontakt" },
-];
+import { useT } from "@/lib/language";
 
 const SOCIALS = [
   {
@@ -18,7 +14,35 @@ const SOCIALS = [
   },
 ];
 
+const COPY = {
+  pl: {
+    tagline: "AveniseFlow — Studio kreacji cyfrowej i nowoczesnych stron www.",
+    navTitle: "Nawigacja",
+    contactTitle: "Kontakt",
+    quickLinks: [
+      { label: "Usługi", href: "#uslugi" },
+      { label: "Portfolio", href: "#portfolio" },
+      { label: "FAQ", href: "#faq" },
+      { label: "Kontakt", href: "#kontakt" },
+    ],
+    rights: "© 2026 AveniseFlow. Wszystkie prawa zastrzeżone.",
+  },
+  en: {
+    tagline: "AveniseFlow — Digital design studio and modern websites.",
+    navTitle: "Navigation",
+    contactTitle: "Contact",
+    quickLinks: [
+      { label: "Services", href: "#uslugi" },
+      { label: "Portfolio", href: "#portfolio" },
+      { label: "FAQ", href: "#faq" },
+      { label: "Contact", href: "#kontakt" },
+    ],
+    rights: "© 2026 AveniseFlow. All rights reserved.",
+  },
+};
+
 export function Footer() {
+  const t = useT(COPY);
   return (
     <footer className="border-t border-white/[0.06]">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-[1.6fr_1fr_1fr]">
@@ -28,17 +52,17 @@ export function Footer() {
             <Logo className="h-8" />
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
-            AveniseFlow — Studio kreacji cyfrowej i nowoczesnych stron www.
+            {t.tagline}
           </p>
         </div>
 
         {/* Szybkie linki */}
         <div>
           <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-            Nawigacja
+            {t.navTitle}
           </h4>
           <ul className="space-y-2.5">
-            {QUICK_LINKS.map((l) => (
+            {t.quickLinks.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}
@@ -54,7 +78,7 @@ export function Footer() {
         {/* Kontakt */}
         <div>
           <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-            Kontakt
+            {t.contactTitle}
           </h4>
           <a
             href={`mailto:${CONTACT.email}`}
@@ -83,7 +107,7 @@ export function Footer() {
       {/* Dolny pasek */}
       <div className="border-t border-white/[0.06]">
         <p className="mx-auto max-w-6xl px-6 py-6 text-center text-xs text-slate-500 md:text-left">
-          © 2026 AveniseFlow. Wszystkie prawa zastrzeżone.
+          {t.rights}
         </p>
       </div>
     </footer>

@@ -1,54 +1,91 @@
-import { ClipboardList, MonitorPlay, Code2, Rocket } from "lucide-react";
+"use client";
 
-const STEPS = [
-  {
-    icon: ClipboardList,
-    step: "01",
-    title: "Krótki Brief & Analiza",
+import { ClipboardList, MonitorPlay, Code2, Rocket } from "lucide-react";
+import { useT } from "@/lib/language";
+
+const COPY = {
+  pl: {
+    eyebrow: "Proces",
+    title: "Przejrzysta współpraca w 4 krokach.",
     description:
-      "Rozmawiamy o celach Twojego biznesu, a ja ustalam zakres funkcjonalności strony.",
+      "Wiesz, co dzieje się na każdym etapie — od pierwszej rozmowy po przekazanie gotowej strony i praw do kodu.",
+    steps: [
+      {
+        icon: ClipboardList,
+        step: "01",
+        title: "Krótki Brief & Analiza",
+        description: "Rozmawiamy o celach Twojego biznesu, a ja ustalam zakres funkcjonalności strony.",
+      },
+      {
+        icon: MonitorPlay,
+        step: "02",
+        title: "Projekt & Interaktywne Demo",
+        description: "Tworzę wstępny widok strony, dzięki czemu widzisz i testujesz projekt przed wdrożeniem.",
+      },
+      {
+        icon: Code2,
+        step: "03",
+        title: "Kodowanie & Testy",
+        description: "Piszę czysty kod w Next.js / Tailwind CSS, dbając o bezpieczeństwo i błyskawiczne ładowanie.",
+      },
+      {
+        icon: Rocket,
+        step: "04",
+        title: "Wdrożenie & Prawa Autorskie",
+        description: "Podpinam stronę pod Twoją domenę i przekazuję pełne majątkowe prawa autorskie do kodu.",
+      },
+    ],
   },
-  {
-    icon: MonitorPlay,
-    step: "02",
-    title: "Projekt & Interaktywne Demo",
+  en: {
+    eyebrow: "Process",
+    title: "A transparent process in 4 steps.",
     description:
-      "Tworzę wstępny widok strony, dzięki czemu widzisz i testujesz projekt przed wdrożeniem.",
+      "You know what's happening at every stage — from the first conversation to handing over the finished site and code rights.",
+    steps: [
+      {
+        icon: ClipboardList,
+        step: "01",
+        title: "Brief & Analysis",
+        description: "We talk about your business goals, and I define the site's feature scope.",
+      },
+      {
+        icon: MonitorPlay,
+        step: "02",
+        title: "Design & Interactive Demo",
+        description: "I build an early preview of the site, so you can see and test the project before it goes live.",
+      },
+      {
+        icon: Code2,
+        step: "03",
+        title: "Coding & Testing",
+        description: "I write clean code in Next.js / Tailwind CSS, focused on security and lightning-fast loading.",
+      },
+      {
+        icon: Rocket,
+        step: "04",
+        title: "Deployment & Copyright",
+        description: "I connect the site to your domain and transfer full copyright to the code.",
+      },
+    ],
   },
-  {
-    icon: Code2,
-    step: "03",
-    title: "Kodowanie & Testy",
-    description:
-      "Piszę czysty kod w Next.js / Tailwind CSS, dbając o bezpieczeństwo i błyskawiczne ładowanie.",
-  },
-  {
-    icon: Rocket,
-    step: "04",
-    title: "Wdrożenie & Prawa Autorskie",
-    description:
-      "Podpinam stronę pod Twoją domenę i przekazuję pełne majątkowe prawa autorskie do kodu.",
-  },
-];
+};
 
 export function Process() {
+  const t = useT(COPY);
   return (
     <section id="proces" className="section">
       <div className="mb-14 flex flex-col items-center gap-4 text-center">
         <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-[#00D2FF]">
-          Proces
+          {t.eyebrow}
         </span>
         <h2 className="max-w-2xl text-3xl font-extrabold tracking-tighter text-white sm:text-4xl">
-          Przejrzysta współpraca w 4 krokach.
+          {t.title}
         </h2>
-        <p className="max-w-xl font-semibold text-slate-300 md:text-lg">
-          Wiesz, co dzieje się na każdym etapie — od pierwszej rozmowy po
-          przekazanie gotowej strony i praw do kodu.
-        </p>
+        <p className="max-w-xl font-semibold text-slate-300 md:text-lg">{t.description}</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {STEPS.map(({ icon: Icon, step, title, description }) => (
+        {t.steps.map(({ icon: Icon, step, title, description }) => (
           <div
             key={step}
             className="group relative flex flex-col rounded-2xl border border-white/[0.05] bg-[#121723]/60 p-6 backdrop-blur-md transition-colors duration-300 hover:border-white/[0.12]"

@@ -10,19 +10,68 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { CONTACT } from "@/lib/constants";
+import { useT } from "@/lib/language";
 
-const SCOPE_OPTIONS = [
-  "Dedykowana Strona Firmowa (500–800 zł)",
-  "Rozbudowany Serwis / Aplikacja Web (800–1400 zł)",
-  "Identyfikacja Wizualna / Logo / Grafika (od 300 PLN)",
-  "Inne rozwiązanie do uzgodnienia",
-];
+const COPY = {
+  pl: {
+    eyebrow: "Kontakt",
+    title: "Zbudujmy coś wyjątkowego.",
+    description: "Opisz krótko projekt. Odpowiadam w ciągu 24 godzin z propozycją kolejnych kroków.",
+    scopeOptions: [
+      "Dedykowana Strona Firmowa (500–800 zł)",
+      "Rozbudowany Serwis / Aplikacja Web (800–1400 zł)",
+      "Identyfikacja Wizualna / Logo / Grafika (od 300 PLN)",
+      "Inne rozwiązanie do uzgodnienia",
+    ],
+    nameLabel: "Imię / Nazwa firmy",
+    namePlaceholder: "Jan Kowalski",
+    emailLabel: "E-mail",
+    emailPlaceholder: "jan@firma.pl",
+    scopeLabel: "Zakres projektu",
+    scopePlaceholder: "Wybierz zakres…",
+    messageLabel: "Wiadomość",
+    messagePlaceholder: "Czego potrzebujesz? Jaki jest cel i termin?",
+    submit: "Wyślij zapytanie",
+    sending: "Wysyłanie…",
+    successTitle: "Dziękuję — wiadomość wysłana.",
+    successDescription: "Odezwę się na podany adres w ciągu 24 godzin.",
+    sendAnother: "Wyślij kolejne zapytanie",
+    genericError: "Nie udało się wysłać wiadomości. Spróbuj ponownie za chwilę lub napisz bezpośrednio na kontakt@avenise-flow.pl.",
+    city: "Poznań, Polska",
+  },
+  en: {
+    eyebrow: "Contact",
+    title: "Let's build something exceptional.",
+    description: "Briefly describe your project. I reply within 24 hours with next steps.",
+    scopeOptions: [
+      "Dedicated Business Website (500–800 PLN)",
+      "Web Service / Application (800–1400 PLN)",
+      "Visual Identity / Logo / Graphics (from 300 PLN)",
+      "Something else to discuss",
+    ],
+    nameLabel: "Name / Company",
+    namePlaceholder: "John Smith",
+    emailLabel: "Email",
+    emailPlaceholder: "john@company.com",
+    scopeLabel: "Project scope",
+    scopePlaceholder: "Choose a scope…",
+    messageLabel: "Message",
+    messagePlaceholder: "What do you need? What's the goal and timeline?",
+    submit: "Send inquiry",
+    sending: "Sending…",
+    successTitle: "Thank you — message sent.",
+    successDescription: "I'll get back to you at the address you provided within 24 hours.",
+    sendAnother: "Send another inquiry",
+    genericError: "Couldn't send the message. Please try again shortly, or email kontakt@avenise-flow.pl directly.",
+    city: "Poznań, Poland",
+  },
+};
 
 type Status = "idle" | "loading" | "success" | "error";
 
 export function Contact() {
+  const t = useT(COPY);
   const [status, setStatus] = useState<Status>("idle");
-  const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -30,7 +79,6 @@ export function Contact() {
     const payload = Object.fromEntries(new FormData(form));
 
     setStatus("loading");
-    setErrorMsg("");
 
     try {
       const res = await fetch("/api/contact", {
@@ -38,14 +86,10 @@ export function Contact() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const json = (await res.json().catch(() => ({}))) as { error?: string };
-      if (!res.ok) throw new Error(json.error || "Nie udało się wysłać wiadomości.");
+      if (!res.ok) throw new Error("send_failed");
       form.reset();
       setStatus("success");
-    } catch (err) {
-      setErrorMsg(
-        err instanceof Error ? err.message : "Coś poszło nie tak. Spróbuj ponownie.",
-      );
+    } catch {
       setStatus("error");
     }
   }
@@ -57,30 +101,27 @@ export function Contact() {
       <div className="rounded-3xl border border-white/[0.06] bg-[#121723]/60 p-8 backdrop-blur-xl md:p-12">
         <div className="mb-10 text-center">
           <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-[#00D2FF]">
-            Kontakt
+            {t.eyebrow}
           </span>
           <h2 className="mt-5 text-3xl font-extrabold tracking-tighter text-white sm:text-4xl">
-            Zbudujmy coś wyjątkowego.
+            {t.title}
           </h2>
           <p className="mx-auto mt-3 max-w-md text-sm text-slate-400 md:text-base">
-            Opisz krótko projekt. Odpowiadam w ciągu 24 godzin z propozycją
-            kolejnych kroków.
+            {t.description}
           </p>
         </div>
 
         {status === "success" ? (
           <div className="mx-auto flex max-w-xl flex-col items-center gap-4 rounded-2xl border border-[#00D2FF]/30 bg-[#00D2FF]/[0.06] p-8 text-center">
             <CheckCircle2 className="h-10 w-10 text-[#00D2FF]" />
-            <p className="text-lg font-bold text-white">Dziękuję — wiadomość wysłana.</p>
-            <p className="text-sm text-slate-400">
-              Odezwę się na podany adres w ciągu 24 godzin.
-            </p>
+            <p className="text-lg font-bold text-white">{t.successTitle}</p>
+            <p className="text-sm text-slate-400">{t.successDescription}</p>
             <button
               type="button"
               onClick={() => setStatus("idle")}
               className="btn-quiet mt-1"
             >
-              Wyślij kolejne zapytanie
+              {t.sendAnother}
             </button>
           </div>
         ) : (
@@ -96,13 +137,13 @@ export function Contact() {
             />
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <Field name="name" label="Imię / Nazwa firmy" placeholder="Jan Kowalski" />
-              <Field name="email" type="email" label="E-mail" placeholder="jan@firma.pl" />
+              <Field name="name" label={t.nameLabel} placeholder={t.namePlaceholder} />
+              <Field name="email" type="email" label={t.emailLabel} placeholder={t.emailPlaceholder} />
             </div>
 
             <div className="flex flex-col gap-2">
               <label htmlFor="scope" className="text-xs text-slate-400">
-                Zakres projektu
+                {t.scopeLabel}
               </label>
               <select
                 id="scope"
@@ -112,9 +153,9 @@ export function Contact() {
                 className="rounded-xl border border-white/[0.08] bg-[#07090E] px-4 py-3 text-sm text-white transition-colors focus:border-[#00D2FF]/50 focus:outline-none"
               >
                 <option value="" disabled>
-                  Wybierz zakres…
+                  {t.scopePlaceholder}
                 </option>
-                {SCOPE_OPTIONS.map((o) => (
+                {t.scopeOptions.map((o) => (
                   <option key={o} value={o}>
                     {o}
                   </option>
@@ -124,7 +165,7 @@ export function Contact() {
 
             <div className="flex flex-col gap-2">
               <label htmlFor="message" className="text-xs text-slate-400">
-                Wiadomość
+                {t.messageLabel}
               </label>
               <textarea
                 id="message"
@@ -132,7 +173,7 @@ export function Contact() {
                 rows={5}
                 required
                 maxLength={5000}
-                placeholder="Czego potrzebujesz? Jaki jest cel i termin?"
+                placeholder={t.messagePlaceholder}
                 className="rounded-xl border border-white/[0.08] bg-[#07090E] px-4 py-3 text-sm text-white placeholder:text-slate-600 transition-colors focus:border-[#00D2FF]/50 focus:outline-none"
               />
             </div>
@@ -140,7 +181,7 @@ export function Contact() {
             {status === "error" && (
               <div className="flex items-start gap-2 rounded-xl border border-red-500/30 bg-red-500/[0.08] px-4 py-3 text-sm text-red-300">
                 <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>{errorMsg}</span>
+                <span>{t.genericError}</span>
               </div>
             )}
 
@@ -151,12 +192,12 @@ export function Contact() {
             >
               {loading ? (
                 <>
-                  Wysyłanie…
+                  {t.sending}
                   <Loader2 className="h-4 w-4 animate-spin" />
                 </>
               ) : (
                 <>
-                  Wyślij zapytanie
+                  {t.submit}
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </>
               )}
@@ -174,7 +215,7 @@ export function Contact() {
           </a>
           <span className="flex items-center gap-2">
             <MapPin className="h-4 w-4 text-[#00D2FF]" />
-            {CONTACT.city}
+            {t.city}
           </span>
         </div>
       </div>
