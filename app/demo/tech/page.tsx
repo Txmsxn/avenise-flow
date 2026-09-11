@@ -123,6 +123,45 @@ export default function ApexForgeDemo() {
         </div>
       </section>
 
+      {/* Realizacje */}
+      <section id="realizacje" className="border-t-4 border-black bg-[#FFF9E6] px-6 py-16">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-4xl font-extrabold uppercase" style={{ fontFamily: HEAD }}>Realizacje</h2>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                n: "FlowPay",
+                d: "Panel rozliczeniowy B2B",
+                m: [["0.6s", "czas ładowania (było 4.2s)"], ["+120%", "aktywnych użytkowników"]],
+              },
+              {
+                n: "ShipSync",
+                d: "Integracja 4 systemów magazynowych",
+                m: [["800", "zamówień / dzień automatycznie"], ["-30h", "pracy ręcznej / miesiąc"]],
+              },
+              {
+                n: "MedFlow",
+                d: "Portal pacjenta, zgodny z RODO",
+                m: [["15 000", "kont pacjentów w 3 miesiące"], ["99.9%", "dostępność (SLA)"]],
+              },
+            ].map((c) => (
+              <div key={c.n} className="border-4 border-black bg-white p-6 shadow-[7px_7px_0_#000]">
+                <h3 className="text-xl font-extrabold uppercase" style={{ fontFamily: HEAD }}>{c.n}</h3>
+                <p className="mt-1 text-sm font-semibold">{c.d}</p>
+                <div className="mt-4 grid grid-cols-2 gap-3 border-t-4 border-black pt-4">
+                  {c.m.map(([v, l]) => (
+                    <div key={l}>
+                      <div className="text-2xl font-extrabold" style={{ fontFamily: HEAD }}>{v}</div>
+                      <div className="text-xs font-semibold">{l}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer id="kontakt" className="border-t-4 border-black bg-black px-6 py-14 text-white">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 md:flex-row md:items-end">

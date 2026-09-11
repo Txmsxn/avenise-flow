@@ -235,6 +235,42 @@ export default function AuraDentalDemo() {
         </div>
       </section>
 
+      {/* Opinie pacjentów */}
+      <section className="px-6 py-14">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-3xl text-[#2F3B32]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            Opinie pacjentów
+          </h2>
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            {[
+              {
+                q: "Higienizacja bezbolesna, umówiona na tę samą godzinę co wcześniej ustalona. Miła atmosfera i konkretny plan leczenia bez naciągania na dodatkowe zabiegi.",
+                n: "Magdalena R.",
+                stars: 5,
+              },
+              {
+                q: "Implant zaplanowany etapami, każdy krok wytłumaczony wcześniej razem z kosztem. Żadnych niespodzianek na fakturze.",
+                n: "Tomasz K.",
+                stars: 5,
+              },
+              {
+                q: "Zabrałam dziecko na pierwszą wizytę — dr Wróbel podeszła do tego bardzo cierpliwie. Wracamy tu regularnie.",
+                n: "Ilona P.",
+                stars: 5,
+              },
+            ].map((t) => (
+              <div key={t.n} className="rounded-2xl border border-[#E6DECF] bg-white p-6">
+                <div className="text-[#E0A93E]">{"★".repeat(t.stars)}</div>
+                <p className="mt-3 text-sm leading-relaxed text-[#5A5951]">„{t.q}”</p>
+                <div className="mt-4 border-t border-[#E6DECF] pt-3 text-sm font-bold text-[#2F3B32]">
+                  {t.n}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="mt-8 border-t border-[#E6DECF] bg-[#F3EEE4] px-6 py-14">
         <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
