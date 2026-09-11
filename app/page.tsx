@@ -5,7 +5,6 @@ import { Portfolio } from "@/components/sections/Portfolio";
 import { Process } from "@/components/sections/Process";
 import { Guarantees } from "@/components/sections/Guarantees";
 import { Technologies } from "@/components/sections/Technologies";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { Pricing } from "@/components/sections/Pricing";
 import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
@@ -21,7 +20,6 @@ export default function HomePage() {
       <Process />
       <Guarantees />
       <Technologies />
-      <Testimonials />
       <Pricing />
       <FAQ />
       <CTA />

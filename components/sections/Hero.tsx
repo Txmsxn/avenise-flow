@@ -17,7 +17,7 @@ export function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00D2FF] opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00D2FF]" />
           </span>
-          Dedykowane strony firmowe &amp; narzędzia www
+          Nie wierz na słowo — kliknij i przetestuj demo
         </span>
 
         {/* H1 */}
