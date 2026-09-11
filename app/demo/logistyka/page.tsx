@@ -14,6 +14,10 @@ import {
   Boxes,
   Plus,
   Quote,
+  ClipboardList,
+  PackageCheck,
+  Globe2,
+  FileCheck2,
 } from "lucide-react";
 import { DemoTopBar } from "@/components/demo/DemoTopBar";
 import { useT, useLanguage } from "@/lib/language";
@@ -57,6 +61,21 @@ const COPY = {
       { i: Package, n: "Bus do 3.5 t", c: "1.4 t · 8 palet" },
       { i: Truck, n: "Solówka 12 t", c: "6 t · 18 palet" },
       { i: Boxes, n: "Naczepa TIR", c: "24 t · 33 palety" },
+    ],
+    processTitle: "Jak zamówić transport",
+    process: [
+      { icon: ClipboardList, t: "Zgłoszenie", d: "Podajesz trasę, wagę i termin — telefonicznie lub przez formularz." },
+      { icon: FileCheck2, t: "Potwierdzenie ceny", d: "W 30 minut dostajesz cenę i numer zlecenia, bez ukrytych opłat." },
+      { icon: Truck, t: "Odbiór ładunku", d: "Kierowca odbiera towar w uzgodnionym oknie czasowym, z pełną dokumentacją." },
+      { icon: PackageCheck, t: "Dostawa i POD", d: "Śledzisz przesyłkę online, a po dostawie dostajesz potwierdzenie (POD) mailem." },
+    ],
+    coverageTitle: "Zasięg działania",
+    coverageSub: "Transport krajowy i międzynarodowy, obsługiwany z własnych baz przeładunkowych.",
+    coverage: [
+      { icon: Globe2, t: "Europa Zachodnia", d: "Niemcy, Francja, Beneluks, Austria — 2–3 dni robocze." },
+      { icon: Globe2, t: "Europa Południowa", d: "Włochy, Hiszpania, Bałkany — 3–5 dni roboczych." },
+      { icon: Globe2, t: "Skandynawia i kraje bałtyckie", d: "Dania, Szwecja, Litwa, Łotwa, Estonia — 3–4 dni robocze." },
+      { icon: Globe2, t: "Polska", d: "Dostawy krajowe next-day na większości tras." },
     ],
     testimonialsTitle: "Zaufali nam",
     testimonials: [
@@ -141,6 +160,21 @@ const COPY = {
       { i: Package, n: "Van up to 3.5 t", c: "1.4 t · 8 pallets" },
       { i: Truck, n: "Rigid truck 12 t", c: "6 t · 18 pallets" },
       { i: Boxes, n: "Semi-trailer", c: "24 t · 33 pallets" },
+    ],
+    processTitle: "How to book a shipment",
+    process: [
+      { icon: ClipboardList, t: "Submit a request", d: "Give us the route, weight and date — by phone or through the form." },
+      { icon: FileCheck2, t: "Price confirmation", d: "You get a price and order number within 30 minutes, no hidden fees." },
+      { icon: Truck, t: "Cargo pickup", d: "A driver collects the goods within the agreed window, with full paperwork." },
+      { icon: PackageCheck, t: "Delivery & POD", d: "Track the shipment online, and get a proof of delivery (POD) by email." },
+    ],
+    coverageTitle: "Coverage",
+    coverageSub: "Domestic and international transport, run from our own cross-dock hubs.",
+    coverage: [
+      { icon: Globe2, t: "Western Europe", d: "Germany, France, Benelux, Austria — 2–3 business days." },
+      { icon: Globe2, t: "Southern Europe", d: "Italy, Spain, the Balkans — 3–5 business days." },
+      { icon: Globe2, t: "Scandinavia & Baltics", d: "Denmark, Sweden, Lithuania, Latvia, Estonia — 3–4 business days." },
+      { icon: Globe2, t: "Poland", d: "Next-day domestic delivery on most routes." },
     ],
     testimonialsTitle: "Trusted by",
     testimonials: [
@@ -377,6 +411,46 @@ export default function VoltDriveDemo() {
                 <Icon className="h-7 w-7 text-[#00E5A0]" />
                 <h3 className="mt-4 text-lg font-bold text-white">{n}</h3>
                 <p className="mt-1 text-sm text-slate-400">{c}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Proces zamówienia */}
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-3xl font-black tracking-tighter text-white">{t.processTitle}</h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {t.process.map(({ icon: Icon, t: title, d }, i) => (
+              <div key={title} className="relative rounded-2xl border border-white/[0.06] bg-white/[0.03] p-6">
+                <span className="absolute right-5 top-5 font-mono text-2xl font-black text-white/10">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <Icon className="h-6 w-6 text-[#00E5A0]" />
+                <h3 className="mt-4 text-base font-bold text-white">{title}</h3>
+                <p className="mt-1.5 text-sm text-slate-400">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Zasięg działania */}
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-3xl font-black tracking-tighter text-white">{t.coverageTitle}</h2>
+          <p className="mt-2 font-medium text-slate-400">{t.coverageSub}</p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {t.coverage.map(({ icon: Icon, t: title, d }) => (
+              <div key={title} className="flex items-start gap-4 rounded-2xl border border-white/[0.06] bg-white/[0.03] p-5">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/[0.06] bg-[#0A1020]">
+                  <Icon className="h-5 w-5 text-[#00A3FF]" />
+                </span>
+                <div>
+                  <h3 className="text-sm font-bold text-white">{title}</h3>
+                  <p className="mt-1 text-sm text-slate-400">{d}</p>
+                </div>
               </div>
             ))}
           </div>

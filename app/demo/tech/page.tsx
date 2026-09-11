@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Zap, Boxes, GitBranch, Cpu, Rocket, ArrowRight } from "lucide-react";
+import { Zap, Boxes, GitBranch, Cpu, Rocket, ArrowRight, MessageSquare, PenTool, Hammer, LifeBuoy } from "lucide-react";
 import { DemoTopBar } from "@/components/demo/DemoTopBar";
 import { useT } from "@/lib/language";
 
@@ -41,6 +41,15 @@ const COPY = {
       { i: Cpu, t: "Dedykowane narzędzia", d: "Konwertery, generatory, automaty." },
       { i: Rocket, t: "Audyt & Speed", d: "Migracja z WP, Core Web Vitals." },
     ],
+    stackTitle: "Stack technologiczny",
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "tRPC", "Tailwind CSS", "Docker", "AWS / Vercel", "Stripe"],
+    processTitle: "Jak pracujemy",
+    process: [
+      { icon: MessageSquare, t: "Discovery", d: "Warsztat z zespołem: cel biznesowy, ograniczenia, definicja MVP." },
+      { icon: PenTool, t: "Architektura", d: "Dobór stacku, model danych, plan sprintów z wycenionymi etapami." },
+      { icon: Hammer, t: "Sprinty 2-tyg.", d: "Cotygodniowy demo builda, kod na bieżąco w Twoim repozytorium." },
+      { icon: LifeBuoy, t: "Wsparcie po Launch", d: "Monitoring, SLA na poprawki, dalszy rozwój produktu." },
+    ],
     caseStudiesTitle: "Realizacje",
     caseStudies: [
       { n: "FlowPay", d: "Panel rozliczeniowy B2B", m: [["0.6s", "czas ładowania (było 4.2s)"], ["+120%", "aktywnych użytkowników"]] },
@@ -75,6 +84,15 @@ const COPY = {
       { i: GitBranch, t: "API Integrations", d: "ERP, CRM, payments, webhooks." },
       { i: Cpu, t: "Custom Tools", d: "Converters, generators, automations." },
       { i: Rocket, t: "Audit & Speed", d: "WordPress migration, Core Web Vitals." },
+    ],
+    stackTitle: "Tech stack",
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "tRPC", "Tailwind CSS", "Docker", "AWS / Vercel", "Stripe"],
+    processTitle: "How we work",
+    process: [
+      { icon: MessageSquare, t: "Discovery", d: "A workshop with your team: business goal, constraints, MVP definition." },
+      { icon: PenTool, t: "Architecture", d: "Stack selection, data model, a sprint plan with priced milestones." },
+      { icon: Hammer, t: "2-week sprints", d: "A weekly build demo, code pushed straight to your own repository." },
+      { icon: LifeBuoy, t: "Post-launch support", d: "Monitoring, an SLA for fixes, ongoing product development." },
     ],
     caseStudiesTitle: "Our work",
     caseStudies: [
@@ -179,6 +197,43 @@ export default function ApexForgeDemo() {
                   <Icon className="h-7 w-7" />
                 </button>
                 <h3 className="mt-4 text-xl font-extrabold uppercase">{title}</h3>
+                <p className="mt-1 text-sm font-semibold">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stack technologiczny */}
+      <section className="border-t-4 border-black bg-white px-6 py-16">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-4xl font-extrabold uppercase" style={{ fontFamily: HEAD }}>{t.stackTitle}</h2>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {t.stack.map((s) => (
+              <span key={s} className="border-4 border-black bg-[#FFF9E6] px-4 py-2 text-sm font-extrabold uppercase shadow-[4px_4px_0_#000]">
+                {s}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Proces */}
+      <section className="border-t-4 border-black bg-[#FFF0F8] px-6 py-16">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-4xl font-extrabold uppercase" style={{ fontFamily: HEAD }}>{t.processTitle}</h2>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {t.process.map(({ icon: Icon, t: title, d }, i) => (
+              <div key={title} className="border-4 border-black bg-white p-6 shadow-[7px_7px_0_#000]">
+                <div className="flex items-center justify-between">
+                  <span className="grid h-12 w-12 place-items-center border-4 border-black bg-[#CCFF00]">
+                    <Icon className="h-6 w-6" />
+                  </span>
+                  <span className="font-extrabold text-black/15" style={{ fontFamily: HEAD, fontSize: 28 }}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <h3 className="mt-4 text-lg font-extrabold uppercase">{title}</h3>
                 <p className="mt-1 text-sm font-semibold">{d}</p>
               </div>
             ))}

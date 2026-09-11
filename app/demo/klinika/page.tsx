@@ -10,6 +10,10 @@ import {
   Check,
   Plus,
   CalendarDays,
+  Scan,
+  Sparkle,
+  Syringe,
+  Navigation,
 } from "lucide-react";
 import { DemoTopBar } from "@/components/demo/DemoTopBar";
 import { useT } from "@/lib/language";
@@ -61,6 +65,16 @@ const COPY = {
     bookedAt: (treatment: string, day: string, sub: string, slot: string) =>
       `${treatment} — ${day} ${sub}, godz. ${slot}.`,
     pickAnother: "Wybierz inny termin",
+    techTitle: "Technologia i sprzęt",
+    techSub: "Nowoczesna diagnostyka oznacza mniej wizyt i dokładniejsze leczenie.",
+    tech: [
+      { icon: Scan, t: "Skaner wewnątrzustny 3D", d: "Cyfrowe wyciski bez masy silikonowej — szybciej i wygodniej." },
+      { icon: Syringe, t: "Znieczulenie komputerowe", d: "Precyzyjne dawkowanie, minimalny dyskomfort podania." },
+      { icon: Sparkle, t: "Laser stomatologiczny", d: "Zabiegi na dziąsłach bez szycia i dłuższego gojenia." },
+    ],
+    locationTitle: "Lokalizacja i dojazd",
+    locationNote: "Klinika mieści się 5 minut pieszo od stacji metra Politechnika, z parkingiem podziemnym w budynku.",
+    locationCta: "Wyznacz trasę",
     pricingTitle: "Cennik zabiegów",
     faqTitle: "Pytania pacjentów",
     faq: [
@@ -130,6 +144,16 @@ const COPY = {
     bookedAt: (treatment: string, day: string, sub: string, slot: string) =>
       `${treatment} — ${day} ${sub}, at ${slot}.`,
     pickAnother: "Choose another time",
+    techTitle: "Technology & equipment",
+    techSub: "Modern diagnostics mean fewer visits and more precise treatment.",
+    tech: [
+      { icon: Scan, t: "3D intraoral scanner", d: "Digital impressions with no silicone putty — faster and more comfortable." },
+      { icon: Syringe, t: "Computer-controlled anesthesia", d: "Precise dosing, minimal discomfort on injection." },
+      { icon: Sparkle, t: "Dental laser", d: "Gum treatments with no stitches and faster healing." },
+    ],
+    locationTitle: "Location & directions",
+    locationNote: "The clinic is a 5-minute walk from Politechnika metro station, with underground parking in the building.",
+    locationCta: "Get directions",
     pricingTitle: "Treatment price list",
     faqTitle: "Patient questions",
     faq: [
@@ -318,6 +342,42 @@ export default function AuraDentalDemo() {
       </section>
 
       {/* Cennik */}
+      {/* Technologia i sprzęt */}
+      <section className="px-6 py-14">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-3xl text-[#2F3B32]" style={{ fontFamily: SERIF, fontWeight: 700 }}>{t.techTitle}</h2>
+          <p className="mt-1 text-[#6B6A63]">{t.techSub}</p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            {t.tech.map(({ icon: Icon, t: title, d }) => (
+              <div key={title} className="rounded-2xl border border-[#E6DECF] bg-white p-6">
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#EEF2EB]">
+                  <Icon className="h-5 w-5 text-[#7A9174]" />
+                </span>
+                <h3 className="mt-4 text-sm font-bold text-[#2F3B32]">{title}</h3>
+                <p className="mt-1.5 text-sm text-[#6B6A63]">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lokalizacja */}
+      <section className="px-6 py-14">
+        <div className="mx-auto max-w-5xl rounded-3xl border border-[#E6DECF] bg-white p-8">
+          <div className="grid gap-8 md:grid-cols-2 md:items-center">
+            <div>
+              <h2 className="text-2xl text-[#2F3B32]" style={{ fontFamily: SERIF, fontWeight: 700 }}>{t.locationTitle}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-[#6B6A63]">{t.locationNote}</p>
+              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#7A9174] px-5 py-2.5 text-sm font-bold text-white hover:bg-[#6b8265]">
+                <Navigation className="h-4 w-4" /> {t.locationCta}
+              </a>
+            </div>
+            <div className="aspect-[4/3] w-full rounded-2xl bg-[repeating-linear-gradient(135deg,#EEF2EB,#EEF2EB_12px,#F6F8F4_12px,#F6F8F4_24px)]" />
+          </div>
+        </div>
+      </section>
+
       <section id="cennik" className="px-6 py-14">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-3xl text-[#2F3B32]" style={{ fontFamily: SERIF, fontWeight: 700 }}>{t.pricingTitle}</h2>
