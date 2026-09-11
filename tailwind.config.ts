@@ -25,7 +25,7 @@ const config: Config = {
       },
       backgroundImage: {
         "accent-gradient":
-          "linear-gradient(135deg, #00E5FF 0%, #8B5CF6 100%)",
+          "linear-gradient(90deg, #00E5FF 0%, #8B5CF6 100%)",
       },
       boxShadow: {
         glow: "0 0 40px -14px rgba(0,210,255,0.28)",

@@ -63,7 +63,7 @@ export function Contact() {
             Zbudujmy coś wyjątkowego.
           </h2>
           <p className="mx-auto mt-3 max-w-md text-sm text-slate-400 md:text-base">
-            Opisz krótko projekt. Odpowiadamy w ciągu 24 godzin z propozycją
+            Opisz krótko projekt. Odpowiadam w ciągu 24 godzin z propozycją
             kolejnych kroków.
           </p>
         </div>
@@ -71,9 +71,9 @@ export function Contact() {
         {status === "success" ? (
           <div className="mx-auto flex max-w-xl flex-col items-center gap-4 rounded-2xl border border-[#00D2FF]/30 bg-[#00D2FF]/[0.06] p-8 text-center">
             <CheckCircle2 className="h-10 w-10 text-[#00D2FF]" />
-            <p className="text-lg font-bold text-white">Dziękujemy — wiadomość wysłana.</p>
+            <p className="text-lg font-bold text-white">Dziękuję — wiadomość wysłana.</p>
             <p className="text-sm text-slate-400">
-              Odezwiemy się na podany adres w ciągu 24 godzin.
+              Odezwę się na podany adres w ciągu 24 godzin.
             </p>
             <button
               type="button"

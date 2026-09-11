@@ -40,10 +40,10 @@ export function Portfolio() {
           Portfolio
         </span>
         <h2 className="max-w-2xl text-3xl font-extrabold tracking-tighter text-white sm:text-4xl">
-          Realny projekt produkcyjny i autonomiczne dema branżowe.
+          Nie mockupy w Figmie — działający kod, który możesz kliknąć.
         </h2>
         <p className="max-w-xl font-semibold text-slate-300 md:text-lg">
-          Jedna działająca strona komercyjna oraz pięć w pełni klikalnych,
+          Jedna realna strona komercyjna oraz pięć w pełni klikalnych,
           samodzielnych landing page'y — każdy z własnym brandingiem, nawigacją
           i stopką, zbudowany od zera w Next.js.
         </p>
@@ -147,7 +147,7 @@ export function Portfolio() {
       {/* CTA */}
       <div className="mt-14 flex justify-center">
         <a href="#kontakt" className="btn-outline-glow group text-center">
-          Potrzebujesz dedykowanej strony dla swojej firmy? Porozmawiajmy
+          Znajdź demo z Twojej branży — albo napisz, jakiej brakuje
           <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </a>
       </div>

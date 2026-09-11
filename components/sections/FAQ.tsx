@@ -7,7 +7,7 @@ import { cn } from "@/lib/cn";
 const ITEMS = [
   {
     q: "Ile kosztuje dedykowana strona w AveniseFlow?",
-    a: "Ceny pełnych stron firmowych pisanych w czystym kodzie (Next.js/Tailwind) zaczynają się od 500 zł. Nie tworzymy masowych, powolnych wizytówek – każdy projekt jest kodowany indywidualnie pod kątem szybkości i konwersji klientów.",
+    a: "Ceny pełnych stron firmowych pisanych w czystym kodzie (Next.js/Tailwind) zaczynają się od 500 zł. Nie tworzę masowych, powolnych wizytówek – każdy projekt koduję indywidualnie pod kątem szybkości i konwersji klientów.",
   },
   {
     q: "Dlaczego warto wybrać dedykowany kod zamiast tradycyjnego WordPressa?",
@@ -15,15 +15,19 @@ const ITEMS = [
   },
   {
     q: "Jak wygląda proces realizacji od pierwszego kontaktu?",
-    a: "Zaczynamy od rozmowy i wypełnienia briefu. Następnie: warsztat i strategia, projekt UI/UX (makiety + prototyp do akceptacji), development w Next.js, testy, a na końcu wdrożenie i szkolenie z obsługi. Na każdym etapie masz wgląd w postępy i punkty decyzyjne.",
+    a: "Zaczynam od rozmowy i briefu. Następnie: strategia, projekt UI/UX (makiety + prototyp do akceptacji), development w Next.js, testy, a na końcu wdrożenie i szkolenie z obsługi. Na każdym etapie masz wgląd w postępy i punkty decyzyjne.",
   },
   {
     q: "Czy przekazujesz pełne prawa autorskie do kodu i projektów?",
-    a: "Tak. Po rozliczeniu projektu przekazujemy pełne majątkowe prawa autorskie do kodu oraz plików projektowych (Figma). Repozytorium i wszystkie źródła trafiają do Ciebie — nie ma vendor lock-inu.",
+    a: "Tak. Po rozliczeniu projektu przekazuję pełne majątkowe prawa autorskie do kodu oraz plików projektowych (Figma). Repozytorium i wszystkie źródła trafiają do Ciebie — nie ma vendor lock-inu.",
   },
   {
     q: "Czy pomagasz w doborze i podpięciu domeny oraz hostingu?",
-    a: "Tak. Doradzamy w wyborze domeny, konfigurujemy DNS i wdrażamy stronę na wydajnym hostingu klasy premium — z globalnym CDN, certyfikatem SSL i automatycznymi kopiami zapasowymi. Możesz zostać przy swoim dostawcy albo przekazać nam pełną opiekę techniczną.",
+    a: "Tak. Doradzam w wyborze domeny, konfiguruję DNS i wdrażam stronę na wydajnym hostingu klasy premium — z globalnym CDN, certyfikatem SSL i automatycznymi kopiami zapasowymi. Możesz zostać przy swoim dostawcy albo przekazać mi pełną opiekę techniczną.",
+  },
+  {
+    q: "Dlaczego w portfolio są demo, a nie same realizacje?",
+    a: "furmanreps.pl to mój realny, działający projekt komercyjny. Pozostałe 5 to w pełni funkcjonalne, interaktywne demo branżowe — buduję je, żebyś mógł przetestować dokładnie taki mechanizm (kalkulator, rezerwację, porównanie), zanim zlecisz mi analogiczny dla swojej branży.",
   },
 ];
 

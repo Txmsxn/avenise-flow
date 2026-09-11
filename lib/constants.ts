@@ -113,27 +113,6 @@ export const TECHNOLOGIES = [
   "Cloudflare",
 ];
 
-export const TESTIMONIALS = [
-  {
-    quote:
-      "AveniseFlow dostarczyło stronę szybciej niż zakładaliśmy, a konwersja wzrosła o 40% w pierwszym miesiącu.",
-    name: "Anna Kowalczyk",
-    role: "CEO, Nordic Studio",
-  },
-  {
-    quote:
-      "Profesjonalne podejście do UX. Każda decyzja projektowa była poparta argumentem i danymi.",
-    name: "Marek Zieliński",
-    role: "Head of Product, Pulse SaaS",
-  },
-  {
-    quote:
-      "Nowa identyfikacja i sklep to zupełnie inny poziom. Zespół dowozi to, co obieca.",
-    name: "Julia Nowak",
-    role: "Founder, Vela Commerce",
-  },
-];
-
 export const PRICING_PLANS = [
   {
     name: "Strona Firmowa",

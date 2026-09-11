@@ -6,7 +6,7 @@ const STEPS = [
     step: "01",
     title: "Krótki Brief & Analiza",
     description:
-      "Omawiamy cele Twojego biznesu i ustalamy zakres funkcjonalności strony.",
+      "Rozmawiamy o celach Twojego biznesu, a ja ustalam zakres funkcjonalności strony.",
   },
   {
     icon: MonitorPlay,

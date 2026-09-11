@@ -1,11 +1,13 @@
-import { Gauge, ShieldCheck, Copyright } from "lucide-react";
+import { Gauge, ShieldCheck, Copyright, ArrowUpRight } from "lucide-react";
 
 const CARDS = [
   {
     icon: Gauge,
-    title: "Gwarancja Szybkości (PageSpeed 90+)",
+    title: "PageSpeed 98/100 — sprawdź sam",
     description:
-      "Strona ładuje się w ułamku sekundy na telefonach i komputerach, co poprawia pozycjonowanie w Google.",
+      "Nie obiecuję „szybką stronę” w ciemno. furmanreps.pl, mój realny projekt, ładuje się w ułamku sekundy — możesz to zmierzyć w PageSpeed Insights własnoręcznie.",
+    href: "https://furmanreps.pl",
+    linkLabel: "Zobacz furmanreps.pl",
   },
   {
     icon: ShieldCheck,
@@ -38,11 +40,8 @@ export function Guarantees() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-3">
-        {CARDS.map(({ icon: Icon, title, description }) => (
-          <div
-            key={title}
-            className="group relative rounded-2xl"
-          >
+        {CARDS.map(({ icon: Icon, title, description, href, linkLabel }) => (
+          <div key={title} className="group relative rounded-2xl">
             <div
               aria-hidden
               className="pointer-events-none absolute -inset-px -z-10 rounded-2xl bg-gradient-to-r from-[#00E5FF] to-[#8B5CF6] opacity-0 blur-[2px] transition-opacity duration-300 group-hover:opacity-100"
@@ -55,6 +54,17 @@ export function Guarantees() {
               <p className="mt-2 text-sm leading-relaxed text-slate-400">
                 {description}
               </p>
+              {href && (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-[#00D2FF] hover:text-white"
+                >
+                  {linkLabel}
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+              )}
             </div>
           </div>
         ))}

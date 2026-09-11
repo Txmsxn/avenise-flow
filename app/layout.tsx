@@ -12,18 +12,18 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "AveniseFlow — Tworzenie stron WWW i projektowanie UI/UX",
   description:
-    "AveniseFlow to agencja projektowa: nowoczesne strony internetowe, aplikacje oraz projektowanie graficzne i UI/UX. Tworzymy cyfrowe produkty, które konwertują.",
+    "AveniseFlow — projektuję i koduję dedykowane strony internetowe, narzędzia www oraz identyfikację wizualną i UI/UX. Tworzę cyfrowe produkty, które konwertują.",
   keywords: [
     "strony internetowe",
     "tworzenie stron www",
     "projektowanie UI/UX",
-    "agencja interaktywna",
+    "dedykowane strony firmowe",
     "Next.js",
   ],
   openGraph: {
-    title: "AveniseFlow — Agencja tworzenia stron i UI/UX",
+    title: "AveniseFlow — dedykowane strony i UI/UX",
     description:
-      "Nowoczesne strony internetowe oraz projektowanie graficzne i UI/UX.",
+      "Projektuję i koduję nowoczesne strony internetowe oraz identyfikację wizualną i UI/UX.",
     locale: "pl_PL",
     type: "website",
   },
