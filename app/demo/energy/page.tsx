@@ -1,8 +1,27 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Sun, Leaf, Wallet, TrendingDown, Zap, ArrowRight } from "lucide-react";
+import { Sun, Leaf, Wallet, TrendingDown, Zap, ArrowRight, Plus } from "lucide-react";
 import { DemoTopBar } from "@/components/demo/DemoTopBar";
+
+const FAQ_ITEMS = [
+  {
+    q: "Czy mogę skorzystać z dofinansowania?",
+    a: "Tak — pomagamy skompletować wniosek o dofinansowanie (np. Mój Prąd) oraz ulgę termomodernizacyjną. Większość klientów odzyskuje 20–40% kosztów instalacji.",
+  },
+  {
+    q: "Jaka jest gwarancja na instalację?",
+    a: "Panele fotowoltaiczne: 25 lat gwarancji produkcyjnej. Inwerter: 10–12 lat. Robociznę i montaż obejmujemy własną gwarancją na 5 lat.",
+  },
+  {
+    q: "Ile trwa realizacja od podpisania umowy?",
+    a: "Zwykle 3–6 tygodni — zależnie od czasu oczekiwania na zgodę zakładu energetycznego na przyłączenie instalacji do sieci.",
+  },
+  {
+    q: "Co się dzieje z nadwyżką wyprodukowanej energii?",
+    a: "Nadwyżkę oddajesz do sieci w systemie net-billingu i odbierasz jako bonus pieniężny na rozliczeniu rocznym — nie przepada.",
+  },
+];
 
 const FONTS =
   "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap";
@@ -16,6 +35,7 @@ export default function EcoPulseDemo() {
   const [bill, setBill] = useState(480);
   const [system, setSystem] = useState<"pv" | "hp">("pv");
   const [area, setArea] = useState(35);
+  const [faqOpen, setFaqOpen] = useState<number | null>(0);
 
   const sim = useMemo(() => {
     const yearly = bill * 12;
@@ -136,6 +156,33 @@ export default function EcoPulseDemo() {
           <a href="#kontakt" className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 to-sky-500 px-6 py-3 text-sm font-semibold text-white">
             Zamów bezpłatny audyt <ArrowRight className="h-4 w-4" />
           </a>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="px-6 py-14">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900">Najczęstsze pytania</h2>
+          <div className="mt-6 flex flex-col gap-3">
+            {FAQ_ITEMS.map((item, i) => {
+              const open = faqOpen === i;
+              return (
+                <div key={item.q} className="rounded-2xl border border-white/50 bg-white/45 backdrop-blur-xl">
+                  <button
+                    type="button"
+                    onClick={() => setFaqOpen(open ? null : i)}
+                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                  >
+                    <span className="font-semibold text-slate-900">{item.q}</span>
+                    <Plus className={`h-5 w-5 shrink-0 text-sky-600 transition-transform ${open ? "rotate-45" : ""}`} />
+                  </button>
+                  {open && (
+                    <p className="px-5 pb-4 text-sm leading-relaxed text-slate-600">{item.a}</p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 

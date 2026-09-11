@@ -12,8 +12,29 @@ import {
   ArrowRight,
   CircleCheck,
   Boxes,
+  Plus,
+  Quote,
 } from "lucide-react";
 import { DemoTopBar } from "@/components/demo/DemoTopBar";
+
+const FAQ_ITEMS = [
+  {
+    q: "Czy mój ładunek jest ubezpieczony?",
+    a: "Tak — każdy transport obejmuje ubezpieczenie cargo do pełnej wartości towaru. Na życzenie doubezpieczamy ładunki szczególnie wartościowe lub wrażliwe na warunki transportu.",
+  },
+  {
+    q: "Ile trwa dostawa krajowa i zagraniczna?",
+    a: "Transport krajowy: 24–48 godzin. Międzynarodowy: zwykle 2–5 dni roboczych, zależnie od trasy i odprawy celnej. Dokładny termin dostajesz razem z wyceną.",
+  },
+  {
+    q: "Jak sprawdzę, gdzie aktualnie jest mój transport?",
+    a: "Każda przesyłka ma numer listu przewozowego i monitoring GPS — status sprawdzisz online w sekcji „Śledzenie przesyłki\" powyżej, bez dzwonienia do dyspozytorni.",
+  },
+  {
+    q: "Jakie dokumenty muszę przygotować do nadania?",
+    a: "Podstawą jest list przewozowy CMR. Przy transporcie międzynarodowym dochodzą dokumenty celne — przygotowujemy je razem z Tobą, nie musisz znać się na formalnościach.",
+  },
+];
 
 const NAV = ["Flota", "Usługi", "Śledzenie", "Kontakt"];
 
@@ -34,6 +55,7 @@ export default function VoltDriveDemo() {
   const [express, setExpress] = useState(false);
   const [track, setTrack] = useState("");
   const [tracked, setTracked] = useState<number | null>(null);
+  const [faqOpen, setFaqOpen] = useState<number | null>(0);
 
   const price = useMemo(() => {
     let p = 260 + distance * 2.3 + weight * 48;
@@ -212,6 +234,68 @@ export default function VoltDriveDemo() {
                 <p className="mt-1 text-sm text-slate-400">{c}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Opinie */}
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-3xl font-black tracking-tighter text-white">Zaufali nam</h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {[
+              {
+                q: "Współpracujemy od 2 lat — zero opóźnień w dostawach do naszych 40 sklepów. Panel śledzenia oszczędza nam codzienne telefony do spedycji.",
+                n: "Katarzyna M.",
+                r: "Kierownik logistyki, sieć handlowa",
+              },
+              {
+                q: "Transport międzynarodowy części zamiennych — zawsze na czas, dokumenty celne przygotowane bez naszego udziału.",
+                n: "Marcin W.",
+                r: "Właściciel, hurtownia motoryzacyjna",
+              },
+              {
+                q: "Kalkulator na stronie dał nam realną cenę w minutę, bez czekania na telefon od handlowca. Zamówienie złożyliśmy tego samego dnia.",
+                n: "Ola K.",
+                r: "Specjalistka ds. zakupów, producent mebli",
+              },
+            ].map((t) => (
+              <div key={t.n} className="rounded-2xl border border-white/[0.06] bg-white/[0.03] p-6">
+                <Quote className="h-5 w-5 text-[#00E5A0]" />
+                <p className="mt-3 text-sm leading-relaxed text-slate-300">{t.q}</p>
+                <div className="mt-4 border-t border-white/[0.06] pt-3">
+                  <div className="text-sm font-bold text-white">{t.n}</div>
+                  <div className="text-xs text-slate-500">{t.r}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-3xl font-black tracking-tighter text-white">Najczęstsze pytania</h2>
+          <div className="mt-8 flex flex-col gap-3">
+            {FAQ_ITEMS.map((item, i) => {
+              const open = faqOpen === i;
+              return (
+                <div key={item.q} className="rounded-2xl border border-white/[0.06] bg-white/[0.03]">
+                  <button
+                    type="button"
+                    onClick={() => setFaqOpen(open ? null : i)}
+                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                  >
+                    <span className="font-bold text-white">{item.q}</span>
+                    <Plus className={`h-5 w-5 shrink-0 text-[#00E5A0] transition-transform ${open ? "rotate-45" : ""}`} />
+                  </button>
+                  {open && (
+                    <p className="px-5 pb-4 text-sm leading-relaxed text-slate-400">{item.a}</p>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

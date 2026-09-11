@@ -147,6 +147,28 @@ export default function LumiereDemo() {
         </div>
       </section>
 
+      {/* Proces / Atelier */}
+      <section id="atelier" className="border-b border-black">
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <h2 className="text-2xl font-black uppercase tracking-tight">Jak powstaje mebel na zamówienie</h2>
+          <div className="mt-10 grid gap-8 border-t border-black pt-8 md:grid-cols-5">
+            {[
+              ["01", "Konsultacja", "Rozmawiamy o funkcji, wymiarach i miejscu, w którym mebel ma stanąć."],
+              ["02", "Projekt i wizualizacja", "Przygotowujemy rysunek techniczny i wizualizację 3D do akceptacji."],
+              ["03", "Dobór materiałów", "Wybierasz gatunek drewna, wykończenie i okucia — widzisz próbki na żywo."],
+              ["04", "Wykonanie w pracowni", "Mebel powstaje ręcznie, etap po etapie, z kontrolą jakości przy każdym."],
+              ["05", "Dostawa i montaż", "Transportujemy i montujemy na miejscu, z instrukcją pielęgnacji drewna."],
+            ].map(([n, t, d]) => (
+              <div key={n}>
+                <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#111111]/40">{n}</div>
+                <div className="mt-2 text-sm font-bold uppercase">{t}</div>
+                <p className="mt-2 text-xs leading-relaxed text-[#111111]/60">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer id="kontakt" className="mx-auto max-w-6xl px-6 py-12">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">

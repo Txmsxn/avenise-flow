@@ -65,9 +65,9 @@ export function Services() {
             </p>
 
             <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-3">
-              <Perk icon={Zap} label="Next.js — natychmiastowe ładowanie" />
-              <Perk icon={Smartphone} label="RWD — pełna responsywność" />
-              <Perk icon={Search} label="SEO — techniczna optymalizacja" />
+              <Perk icon={Zap} label="Błyskawiczne ładowanie strony" />
+              <Perk icon={Smartphone} label="Wygląda dobrze na telefonie i komputerze" />
+              <Perk icon={Search} label="Lepsza widoczność w Google (SEO)" />
             </ul>
           </div>
         </BentoCard>
@@ -84,8 +84,8 @@ export function Services() {
               ścieżki użytkownika przemyślane w każdym detalu.
             </p>
             <ul className="mt-6 space-y-2.5">
-              <Perk icon={MousePointerClick} label="Projekt pod konwersję" />
-              <Perk icon={Layers} label="Design system i komponenty" />
+              <Perk icon={MousePointerClick} label="Interfejs zaprojektowany, by sprzedawać" />
+              <Perk icon={Layers} label="Spójny system wizualny całej strony" />
             </ul>
           </div>
         </BentoCard>
@@ -124,9 +124,9 @@ export function Services() {
               po działające narzędzie wpięte w Twój proces.
             </p>
             <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-3">
-              <Perk icon={Braces} label="Dedykowane skrypty i logika" />
+              <Perk icon={Braces} label="Autorskie skrypty pod Twój proces" />
               <Perk icon={Repeat} label="Konwertery i automatyzacje" />
-              <Perk icon={Plug} label="Integracje z API i systemami" />
+              <Perk icon={Plug} label="Połączenie z innymi systemami (płatności, CRM)" />
             </ul>
           </div>
         </BentoCard>
