@@ -96,7 +96,7 @@ export function Portfolio() {
             { icon: PlayCircle, label: "Rezerwacja: zabieg → dzień → godzina" },
           ]}
           demo={{ kind: "internal", href: "/demo/klinika", label: "Zobacz Podgląd Demo" }}
-          visual={<IndustryVisual url="auradental.pl" icon={Stethoscope} label="Booking system" tint="#7A9174" light />}
+          visual={<IndustryVisual url="auradental.pl" icon={Stethoscope} label="Booking system" tint="#34D399" />}
         />
 
         {/* Projekt 4 — tech */}
@@ -111,7 +111,7 @@ export function Portfolio() {
             { icon: Search, label: "Przełącznik wydajności Next.js vs WordPress" },
           ]}
           demo={{ kind: "internal", href: "/demo/tech", label: "Zobacz Podgląd Demo" }}
-          visual={<IndustryVisual url="apexforge.dev" icon={Code2} label="Software house" tint="#111111" />}
+          visual={<IndustryVisual url="apexforge.dev" icon={Code2} label="Software house" tint="#8B5CF6" />}
         />
 
         {/* Projekt 5 — luxury */}
@@ -125,7 +125,7 @@ export function Portfolio() {
             { icon: Search, label: "Kalkulator projektu na wymiar" },
           ]}
           demo={{ kind: "internal", href: "/demo/luxury", label: "Zobacz Podgląd Demo" }}
-          visual={<IndustryVisual url="lumiere-atelier.pl" icon={Palette} label="Swiss minimal" tint="#111111" light />}
+          visual={<IndustryVisual url="lumiere-atelier.pl" icon={Palette} label="Swiss minimal" tint="#A1A1AA" />}
         />
 
         {/* Projekt 6 — energy */}
@@ -140,7 +140,7 @@ export function Portfolio() {
             { icon: Search, label: "Symulator oszczędności z PV / pompy ciepła" },
           ]}
           demo={{ kind: "internal", href: "/demo/energy", label: "Zobacz Podgląd Demo" }}
-          visual={<IndustryVisual url="ecopulse.pl" icon={Layers} label="Savings simulator" tint="#38BDF8" light />}
+          visual={<IndustryVisual url="ecopulse.pl" icon={Layers} label="Savings simulator" tint="#38BDF8" />}
         />
       </div>
 
@@ -262,30 +262,40 @@ function ProjectRow({
   );
 }
 
-function WindowChrome({ url, light = false }: { url: string; light?: boolean }) {
+function WindowChrome({ url }: { url: string }) {
   return (
-    <div
-      className={cn(
-        "flex items-center gap-3 border-b px-4 py-3",
-        light ? "border-black/[0.06]" : "border-white/[0.06]",
-      )}
-    >
+    <div className="flex items-center gap-2.5 border-b border-white/[0.06] bg-black/40 px-4 py-2.5">
       <div className="flex gap-1.5">
-        <span className="h-3 w-3 rounded-full bg-[#FF5F57]/80" />
-        <span className="h-3 w-3 rounded-full bg-[#FEBC2E]/80" />
-        <span className="h-3 w-3 rounded-full bg-[#28C840]/80" />
+        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
       </div>
-      <div
-        className={cn(
-          "mx-auto flex items-center gap-2 rounded-md border px-3 py-1 text-xs",
-          light
-            ? "border-black/[0.06] bg-black/[0.03] text-slate-500"
-            : "border-white/[0.06] bg-white/[0.03] text-slate-500",
-        )}
-      >
+      <div className="mx-auto flex items-center gap-2 rounded-md border border-white/[0.06] bg-white/[0.03] px-3 py-1 text-[11px] text-slate-500">
         <span className="h-1.5 w-1.5 rounded-full bg-[#00D2FF]" />
         {url}
       </div>
+    </div>
+  );
+}
+
+/** Wspólna, ciemna „skorupa" makiety — glass + świecąca ramka na hover. */
+function DemoShell({
+  children,
+  tint,
+}: {
+  children: React.ReactNode;
+  tint?: string;
+}) {
+  return (
+    <div className="group relative overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-900/70 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#00D2FF]/50 hover:shadow-[0_0_50px_-16px_rgba(0,210,255,0.45)]">
+      {tint && (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full opacity-40 blur-3xl transition-opacity duration-300 group-hover:opacity-70"
+          style={{ backgroundColor: tint }}
+        />
+      )}
+      <div className="relative">{children}</div>
     </div>
   );
 }
@@ -295,68 +305,57 @@ function IndustryVisual({
   icon: Icon,
   label,
   tint,
-  light = false,
 }: {
   url: string;
   icon: React.ComponentType<{ className?: string }>;
   label: string;
   tint: string;
-  light?: boolean;
 }) {
   return (
-    <div
-      className={cn(
-        "overflow-hidden rounded-2xl border shadow-2xl backdrop-blur-xl",
-        light ? "border-black/10 bg-white" : "border-white/10 bg-[#0B0E15]",
-      )}
-    >
-      <WindowChrome url={url} light={light} />
+    <DemoShell tint={tint}>
+      <WindowChrome url={url} />
       <div className="flex flex-col items-center gap-3 p-8 text-center">
         <span
           className="grid h-14 w-14 place-items-center rounded-2xl"
-          style={{ backgroundColor: `${tint}1A`, color: tint }}
+          style={{
+            backgroundColor: `${tint}1F`,
+            color: tint,
+            boxShadow: `inset 0 0 0 1px ${tint}55`,
+          }}
         >
           <Icon className="h-7 w-7" />
         </span>
         <span
-          className={cn(
-            "text-[10px] font-semibold uppercase tracking-widest",
-            light ? "text-slate-500" : "text-slate-400",
-          )}
+          className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 font-display text-[10px] font-bold uppercase tracking-widest"
+          style={{ color: tint }}
         >
           {label}
         </span>
-        <p
-          className={cn(
-            "text-lg font-black leading-snug tracking-tight",
-            light ? "text-slate-900" : "text-white",
-          )}
-        >
+        <p className="text-lg font-black tracking-tight text-white">
           Interaktywna makieta
         </p>
+        <div className="w-full space-y-2">
+          <div className="h-2 w-3/4 rounded-full bg-white/10" />
+          <div className="h-2 w-1/2 rounded-full bg-white/[0.06]" />
+        </div>
         <div className="grid w-full grid-cols-3 gap-2">
           {["Hero", "Widget", "Formularz"].map((s) => (
             <div
               key={s}
-              className={cn(
-                "rounded-md border px-2 py-2 text-[10px]",
-                light
-                  ? "border-black/[0.06] bg-black/[0.03] text-slate-500"
-                  : "border-white/[0.05] bg-white/[0.03] text-slate-400",
-              )}
+              className="rounded-md border border-white/[0.06] bg-white/[0.03] px-2 py-2 text-[10px] text-slate-400"
             >
               {s}
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </DemoShell>
   );
 }
 
 function ProductionVisual() {
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0B0E15] shadow-2xl backdrop-blur-xl">
+    <DemoShell tint="#00D2FF">
       <WindowChrome url="furmanreps.pl" />
       <div className="space-y-4 p-6">
         <div className="flex items-center gap-2 rounded-lg border border-white/[0.06] bg-white/[0.03] px-3 py-2.5 text-xs text-slate-400">
@@ -392,6 +391,6 @@ function ProductionVisual() {
           ))}
         </div>
       </div>
-    </div>
+    </DemoShell>
   );
 }
