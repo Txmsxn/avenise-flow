@@ -1,7 +1,31 @@
+"use client";
+
 import { ArrowRight } from "lucide-react";
 import { ProjectPreview } from "@/components/sections/ProjectPreview";
+import { useT } from "@/lib/language";
+
+const COPY = {
+  pl: {
+    badge: "Nie wierz na słowo — kliknij i przetestuj demo",
+    h1Start: "Łączę precyzyjny kod z designem, który",
+    h1Accent: "generuje klientów",
+    sub: "Projektuję i wdrażam dedykowane strony firmowe oraz narzędzia www — pisane od zera, pod konkretny cel biznesowy. Bez gotowych szablonów i tanich wizytówek.",
+    ctaPrimary: "Rozpocznij Projekt",
+    ctaSecondary: "Zobacz Case Study",
+  },
+  en: {
+    badge: "Don't take my word for it — click and try the demo",
+    h1Start: "I combine precise code with design that",
+    h1Accent: "generates customers",
+    sub: "I design and build dedicated business websites and web tools — coded from scratch, for a specific business goal. No off-the-shelf templates, no cheap business cards.",
+    ctaPrimary: "Start a Project",
+    ctaSecondary: "See Case Study",
+  },
+};
 
 export function Hero() {
+  const t = useT(COPY);
+
   return (
     <section className="relative overflow-hidden px-6 pt-36 pb-24 md:pt-44 md:pb-28">
       {/* Asymmetric ambient glow — pojedyncze światło po prawej */}
@@ -17,33 +41,31 @@ export function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00D2FF] opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00D2FF]" />
           </span>
-          Nie wierz na słowo — kliknij i przetestuj demo
+          {t.badge}
         </span>
 
         {/* H1 */}
         <h1 className="mt-6 text-balance text-3xl font-extrabold leading-[1.2] tracking-tight text-white sm:text-4xl lg:text-5xl">
-          Łączę precyzyjny kod z designem, który{" "}
+          {t.h1Start}{" "}
           <span className="inline bg-gradient-to-r from-[#00E5FF] to-[#8B5CF6] bg-clip-text text-transparent">
-            generuje klientów
+            {t.h1Accent}
           </span>
           .
         </h1>
 
         {/* Podnagłówek */}
         <p className="mt-5 max-w-xl text-base font-semibold leading-relaxed text-slate-300 md:text-lg">
-          Projektuję i wdrażam dedykowane strony firmowe oraz narzędzia www —
-          pisane od zera, pod konkretny cel biznesowy. Bez gotowych szablonów i
-          tanich wizytówek.
+          {t.sub}
         </p>
 
         {/* CTA */}
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
           <a href="#kontakt" className="btn-outline-glow group">
-            Rozpocznij Projekt
+            {t.ctaPrimary}
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
           </a>
           <a href="#portfolio" className="btn-quiet">
-            Zobacz Case Study
+            {t.ctaSecondary}
           </a>
         </div>
       </div>

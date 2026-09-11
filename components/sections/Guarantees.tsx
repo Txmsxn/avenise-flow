@@ -1,46 +1,77 @@
-import { Gauge, ShieldCheck, Copyright, ArrowUpRight } from "lucide-react";
+"use client";
 
-const CARDS = [
-  {
-    icon: Gauge,
-    title: "PageSpeed 98/100 — sprawdź sam",
-    description:
-      "Nie obiecuję „szybką stronę” w ciemno. furmanreps.pl, mój realny projekt, ładuje się w ułamku sekundy — możesz to zmierzyć w PageSpeed Insights własnoręcznie.",
-    href: "https://furmanreps.pl",
-    linkLabel: "Zobacz furmanreps.pl",
+import { Gauge, ShieldCheck, Copyright, ArrowUpRight } from "lucide-react";
+import { useT } from "@/lib/language";
+
+const COPY = {
+  pl: {
+    eyebrow: "Standardy & Gwarancje",
+    title: "Quality, które dostajesz w każdym projekcie.",
+    description: "Konkretne zobowiązania, nie hasła marketingowe — spisane i wpisane w każdą umowę.",
+    cards: [
+      {
+        icon: Gauge,
+        title: "PageSpeed 98/100 — sprawdź sam",
+        description:
+          "Nie obiecuję „szybką stronę” w ciemno. furmanreps.pl, mój realny projekt, ładuje się w ułamku sekundy — możesz to zmierzyć w PageSpeed Insights własnoręcznie.",
+        href: "https://furmanreps.pl",
+        linkLabel: "Zobacz furmanreps.pl",
+      },
+      {
+        icon: ShieldCheck,
+        title: "Czysty i Bezpieczny Kod",
+        description: "Brak podatnych na ataki hakerskie wtyczek oraz ociężałych szablonów znanych z WordPressa.",
+      },
+      {
+        icon: Copyright,
+        title: "100% Praw Autorskich",
+        description: "Brak ukrytych opłat abonamentowych za sam kod. Strona jest na zawsze Twoją własnością.",
+      },
+    ],
   },
-  {
-    icon: ShieldCheck,
-    title: "Czysty i Bezpieczny Kod",
-    description:
-      "Brak podatnych na ataki hakerskie wtyczek oraz ociężałych szablonów znanych z WordPressa.",
+  en: {
+    eyebrow: "Standards & Guarantees",
+    title: "The quality you get in every project.",
+    description: "Concrete commitments, not marketing slogans — written into every contract.",
+    cards: [
+      {
+        icon: Gauge,
+        title: "PageSpeed 98/100 — see for yourself",
+        description:
+          "I don't promise a \"fast website\" on faith. furmanreps.pl, my real production project, loads in a fraction of a second — measure it yourself in PageSpeed Insights.",
+        href: "https://furmanreps.pl",
+        linkLabel: "View furmanreps.pl",
+      },
+      {
+        icon: ShieldCheck,
+        title: "Clean, Secure Code",
+        description: "No plugins vulnerable to hacking, no heavy templates known from WordPress.",
+      },
+      {
+        icon: Copyright,
+        title: "100% Copyright Ownership",
+        description: "No hidden subscription fees for the code itself. The site is permanently your own property.",
+      },
+    ],
   },
-  {
-    icon: Copyright,
-    title: "100% Praw Autorskich",
-    description:
-      "Brak ukrytych opłat abonamentowych za sam kod. Strona jest na zawsze Twoją własnością.",
-  },
-];
+};
 
 export function Guarantees() {
+  const t = useT(COPY);
   return (
     <section id="dlaczego-my" className="section">
       <div className="mb-14 flex flex-col items-center gap-4 text-center">
         <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-4 py-1.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-[#00D2FF]">
-          Standardy &amp; Gwarancje
+          {t.eyebrow}
         </span>
         <h2 className="max-w-2xl text-3xl font-extrabold tracking-tighter text-white sm:text-4xl">
-          Quality, które dostajesz w każdym projekcie.
+          {t.title}
         </h2>
-        <p className="max-w-xl font-semibold text-slate-300 md:text-lg">
-          Konkretne zobowiązania, nie hasła marketingowe — spisane i wpisane
-          w każdą umowę.
-        </p>
+        <p className="max-w-xl font-semibold text-slate-300 md:text-lg">{t.description}</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-3">
-        {CARDS.map(({ icon: Icon, title, description, href, linkLabel }) => (
+        {t.cards.map(({ icon: Icon, title, description, href, linkLabel }) => (
           <div key={title} className="group relative rounded-2xl">
             <div
               aria-hidden

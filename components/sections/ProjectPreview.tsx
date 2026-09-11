@@ -1,8 +1,32 @@
+"use client";
+
+import { useT } from "@/lib/language";
+
+const COPY = {
+  pl: {
+    label: "Case study",
+    brand: "Twoja marka.",
+    accent: "Więcej klientów.",
+    detail: "Redesign + wdrożenie w 3 tygodnie. PageSpeed 98/100.",
+    view: "Zobacz projekt",
+    stat: "+42% konwersji",
+  },
+  en: {
+    label: "Case study",
+    brand: "Your brand.",
+    accent: "More customers.",
+    detail: "Redesign + launch in 3 weeks. PageSpeed 98/100.",
+    view: "View project",
+    stat: "+42% conversion",
+  },
+};
+
 /**
  * Pływająca, szklana karta z podglądem projektu:
  * po lewej fragment kodu, po prawej wyrenderowany podgląd strony klienta.
  */
 export function ProjectPreview() {
+  const t = useT(COPY);
   return (
     <div className="animate-float rounded-2xl border border-white/10 bg-white/[0.03] p-1.5 shadow-2xl backdrop-blur-xl">
       <div className="overflow-hidden rounded-xl border border-white/[0.06] bg-[#0B0E15]">
@@ -102,23 +126,21 @@ export function ProjectPreview() {
               className="pointer-events-none absolute right-4 top-4 h-24 w-24 rounded-full bg-[#6C5CE7]/20 blur-2xl"
             />
             <span className="text-xs uppercase tracking-widest text-slate-500">
-              Case study
+              {t.label}
             </span>
             <p className="text-xl font-semibold leading-snug text-white">
-              Twoja marka.{" "}
+              {t.brand}{" "}
               <span className="bg-gradient-to-r from-[#00E5FF] to-[#8B5CF6] bg-clip-text text-transparent">
-                Więcej klientów.
+                {t.accent}
               </span>
             </p>
-            <p className="text-sm text-slate-400">
-              Redesign + wdrożenie w 3 tygodnie. PageSpeed 98/100.
-            </p>
+            <p className="text-sm text-slate-400">{t.detail}</p>
             <div className="mt-1 flex gap-2">
               <span className="rounded-full bg-gradient-to-r from-[#00E5FF] to-[#8B5CF6] px-4 py-1.5 text-xs font-semibold text-white">
-                Zobacz projekt
+                {t.view}
               </span>
               <span className="rounded-full border border-white/10 px-4 py-1.5 text-xs text-slate-300">
-                +42% konwersji
+                {t.stat}
               </span>
             </div>
           </div>

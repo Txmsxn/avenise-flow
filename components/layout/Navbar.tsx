@@ -3,13 +3,32 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { NAV_LINKS } from "@/lib/constants";
 import { Logo } from "@/components/ui/Logo";
 import { cn } from "@/lib/cn";
+import { useT } from "@/lib/language";
+
+const NAV_LINKS = {
+  pl: [
+    { label: "Usługi", href: "#uslugi" },
+    { label: "Portfolio", href: "#portfolio" },
+    { label: "Dlaczego My", href: "#dlaczego-my" },
+    { label: "FAQ", href: "#faq" },
+  ],
+  en: [
+    { label: "Services", href: "#uslugi" },
+    { label: "Portfolio", href: "#portfolio" },
+    { label: "Why Me", href: "#dlaczego-my" },
+    { label: "FAQ", href: "#faq" },
+  ],
+};
+
+const CTA = { pl: "Darmowa Wycena", en: "Free Quote" };
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const links = useT(NAV_LINKS);
+  const cta = useT(CTA);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -33,7 +52,7 @@ export function Navbar() {
         </Link>
 
         <ul className="hidden items-center gap-10 md:flex">
-          {NAV_LINKS.map((link) => (
+          {links.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
@@ -46,7 +65,7 @@ export function Navbar() {
         </ul>
 
         <Link href="#kontakt" className="btn-outline-glow hidden !py-2.5 !text-[13px] md:inline-flex">
-          Darmowa Wycena
+          {cta}
         </Link>
 
         <button
@@ -62,7 +81,7 @@ export function Navbar() {
       {open && (
         <div className="border-t border-white/[0.06] bg-[#07090E]/95 px-6 py-5 backdrop-blur-xl md:hidden">
           <div className="flex flex-col gap-1">
-            {NAV_LINKS.map((link) => (
+            {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -77,7 +96,7 @@ export function Navbar() {
               onClick={() => setOpen(false)}
               className="btn-outline-glow mt-3"
             >
-              Darmowa Wycena
+              {cta}
             </Link>
           </div>
         </div>
