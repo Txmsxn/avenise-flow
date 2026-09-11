@@ -151,29 +151,32 @@ export default function EcoPulseDemo() {
     >
       {/* eslint-disable-next-line @next/next/no-page-custom-font */}
       <link rel="stylesheet" href={FONTS} />
-      <DemoTopBar industry={topBarIndustry} />
+      {/* Pasek agencji + header firmy przewijają się razem jako jedna sticky całość */}
+      <div className="sticky top-0 z-[60]">
+        <DemoTopBar industry={topBarIndustry} />
 
-      {/* Header */}
-      <header className="border-b border-white/40 bg-white/40 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-2.5">
-            <span className="grid h-9 w-9 place-items-center rounded-2xl bg-gradient-to-br from-amber-300 to-sky-400 text-white">
-              <Sun className="h-5 w-5" />
-            </span>
-            <span className="text-lg font-bold text-slate-800">EcoPulse</span>
+        {/* Header */}
+        <header className="border-b border-white/40 bg-white/80 backdrop-blur-md">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+            <div className="flex items-center gap-2.5">
+              <span className="grid h-9 w-9 place-items-center rounded-2xl bg-gradient-to-br from-amber-300 to-sky-400 text-white">
+                <Sun className="h-5 w-5" />
+              </span>
+              <span className="text-lg font-bold text-slate-800">EcoPulse</span>
+            </div>
+            <nav className="hidden gap-8 md:flex">
+              {t.nav.map((n, i) => (
+                <a key={n} href={NAV_HREFS[i]} className="text-sm font-semibold text-slate-600 hover:text-slate-900">
+                  {n}
+                </a>
+              ))}
+            </nav>
+            <a href="#symulator" className="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white hover:bg-slate-700">
+              {t.headerCta}
+            </a>
           </div>
-          <nav className="hidden gap-8 md:flex">
-            {t.nav.map((n, i) => (
-              <a key={n} href={NAV_HREFS[i]} className="text-sm font-semibold text-slate-600 hover:text-slate-900">
-                {n}
-              </a>
-            ))}
-          </nav>
-          <a href="#symulator" className="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white hover:bg-slate-700">
-            {t.headerCta}
-          </a>
-        </div>
-      </header>
+        </header>
+      </div>
 
       {/* Hero */}
       <section className="px-6 pt-16 pb-14">

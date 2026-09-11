@@ -43,6 +43,7 @@ const COPY = {
       { i: Clock, t: "Wizyty także w soboty" },
     ],
     teamTitle: "Nasz zespół",
+    teamSub: "Doświadczeni specjaliści, którym zaufały tysiące pacjentów.",
     team: [
       { n: "dr n. med. Anna Wróbel", s: "Stomatologia zachowawcza" },
       { n: "lek. dent. Piotr Kaczmarek", s: "Implantologia" },
@@ -122,6 +123,7 @@ const COPY = {
       { i: Clock, t: "Saturday appointments available" },
     ],
     teamTitle: "Our team",
+    teamSub: "Experienced specialists trusted by thousands of patients.",
     team: [
       { n: "Dr. Anna Wróbel, DDS", s: "Restorative dentistry" },
       { n: "Dr. Piotr Kaczmarek, DDS", s: "Implantology" },
@@ -214,63 +216,49 @@ export default function AuraDentalDemo() {
     <div className="min-h-screen bg-[#FAF7F2] text-[#3B3A36]" style={{ fontFamily: SANS }}>
       {/* eslint-disable-next-line @next/next/no-page-custom-font */}
       <link rel="stylesheet" href={FONTS} />
-      <DemoTopBar industry={topBarIndustry} />
+      {/* Pasek agencji + header firmy przewijają się razem jako jedna sticky całość */}
+      <div className="sticky top-0 z-[60]">
+        <DemoTopBar industry={topBarIndustry} />
 
-      {/* Header */}
-      <header className="border-b border-[#E6DECF] bg-[#FAF7F2]/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <span className="text-2xl tracking-tight text-[#2F3B32]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-            Aura<span className="text-[#7A9174]"> Dental</span>
-          </span>
-          <nav className="hidden gap-8 md:flex">
-            {t.nav.map((n, i) => (
-              <a key={n} href={NAV_HREFS[i]} className="text-sm font-semibold text-[#6B6A63] hover:text-[#2F3B32]">
-                {n}
+        <header className="border-b border-[#E6DECF] bg-[#FAF7F2]/95 backdrop-blur">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+            <span className="text-2xl tracking-tight text-[#2F3B32]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+              Aura<span className="text-[#7A9174]"> Dental</span>
+            </span>
+            <nav className="hidden gap-8 md:flex">
+              {t.nav.map((n, i) => (
+                <a key={n} href={NAV_HREFS[i]} className="text-sm font-semibold text-[#6B6A63] hover:text-[#2F3B32]">
+                  {n}
+                </a>
+              ))}
+            </nav>
+            <div className="flex items-center gap-4">
+              <a href="tel:+48123456789" className="hidden items-center gap-2 text-sm font-bold text-[#2F3B32] sm:flex">
+                <Phone className="h-4 w-4 text-[#7A9174]" /> {t.registrationLabel}
               </a>
-            ))}
-          </nav>
-          <div className="flex items-center gap-4">
-            <a href="tel:+48123456789" className="hidden items-center gap-2 text-sm font-bold text-[#2F3B32] sm:flex">
-              <Phone className="h-4 w-4 text-[#7A9174]" /> {t.registrationLabel}
-            </a>
-            <a href="#rezerwacja" className="rounded-full bg-[#7A9174] px-5 py-2 text-sm font-bold text-white hover:bg-[#6b8265]">
-              {t.bookCta}
-            </a>
+              <a href="#rezerwacja" className="rounded-full bg-[#7A9174] px-5 py-2 text-sm font-bold text-white hover:bg-[#6b8265]">
+                {t.bookCta}
+              </a>
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
+      </div>
 
       {/* Hero */}
       <section className="px-6 pt-16 pb-14">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#7A9174]">{t.eyebrow}</span>
-            <h1 className="mt-5 text-5xl leading-[1.1] text-[#2F3B32] md:text-6xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-              {t.h1a}<br />
-              <span className="italic text-[#7A9174]">{t.h1b}</span>
-            </h1>
-            <p className="mt-5 max-w-md text-lg text-[#6B6A63]">{t.sub}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              {t.badges.map(({ i: Icon, t: label }) => (
-                <span key={label} className="inline-flex items-center gap-2 rounded-full border border-[#E6DECF] bg-white px-4 py-2 text-sm font-semibold text-[#4A4A44]">
-                  <Icon className="h-4 w-4 text-[#7A9174]" /> {label}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="rounded-3xl border border-[#E6DECF] bg-white p-6">
-            <div className="text-xs font-bold uppercase tracking-widest text-[#9A9890]">{t.teamTitle}</div>
-            <div className="mt-4 space-y-4">
-              {t.team.map((m) => (
-                <div key={m.n} className="flex items-center gap-4">
-                  <div className="h-12 w-12 shrink-0 rounded-full bg-gradient-to-br from-[#DDE7D9] to-[#EDE4D3]" />
-                  <div>
-                    <div className="text-sm font-bold text-[#2F3B32]">{m.n}</div>
-                    <div className="text-xs text-[#6B6A63]">{m.s}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#7A9174]">{t.eyebrow}</span>
+          <h1 className="mt-5 text-5xl leading-[1.1] text-[#2F3B32] md:text-6xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            {t.h1a}<br />
+            <span className="italic text-[#7A9174]">{t.h1b}</span>
+          </h1>
+          <p className="mx-auto mt-5 max-w-md text-lg text-[#6B6A63]">{t.sub}</p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            {t.badges.map(({ i: Icon, t: label }) => (
+              <span key={label} className="inline-flex items-center gap-2 rounded-full border border-[#E6DECF] bg-white px-4 py-2 text-sm font-semibold text-[#4A4A44]">
+                <Icon className="h-4 w-4 text-[#7A9174]" /> {label}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -430,6 +418,25 @@ export default function AuraDentalDemo() {
                 <div className="mt-4 border-t border-[#E6DECF] pt-3 text-sm font-bold text-[#2F3B32]">
                   {r.n}
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Nasz zespół — pełna sekcja na dole strony, cel zakładki "Zespół" */}
+      <section id="zespol" className="px-6 py-14">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-3xl text-[#2F3B32]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            {t.teamTitle}
+          </h2>
+          <p className="mt-1 text-[#6B6A63]">{t.teamSub}</p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            {t.team.map((m) => (
+              <div key={m.n} className="rounded-2xl border border-[#E6DECF] bg-white p-6">
+                <div className="h-16 w-16 rounded-full bg-gradient-to-br from-[#DDE7D9] to-[#EDE4D3]" />
+                <div className="mt-4 text-sm font-bold text-[#2F3B32]">{m.n}</div>
+                <div className="mt-1 text-xs text-[#6B6A63]">{m.s}</div>
               </div>
             ))}
           </div>

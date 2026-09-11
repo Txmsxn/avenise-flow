@@ -153,22 +153,25 @@ export default function LumiereDemo() {
     <div className="min-h-screen bg-white text-[#111111]" style={{ fontFamily: FONT }}>
       {/* eslint-disable-next-line @next/next/no-page-custom-font */}
       <link rel="stylesheet" href={FONTS} />
-      <DemoTopBar industry={topBarIndustry} />
+      {/* Pasek agencji + header firmy przewijają się razem jako jedna sticky całość */}
+      <div className="sticky top-0 z-[60]">
+        <DemoTopBar industry={topBarIndustry} />
 
-      {/* Header */}
-      <header className="border-b border-black bg-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-          <span className="text-xl font-black uppercase tracking-[0.25em]">Lumière</span>
-          <nav className="hidden gap-10 md:flex">
-            {t.nav.map((n, i) => (
-              <a key={n} href={NAV_HREFS[i]} className="text-xs font-bold uppercase tracking-[0.15em] hover:opacity-50">
-                {n}
-              </a>
-            ))}
-          </nav>
-          <span className="text-xs font-bold uppercase tracking-[0.15em]">{t.est}</span>
-        </div>
-      </header>
+        {/* Header */}
+        <header className="border-b border-black bg-white">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+            <span className="text-xl font-black uppercase tracking-[0.25em]">Lumière</span>
+            <nav className="hidden gap-10 md:flex">
+              {t.nav.map((n, i) => (
+                <a key={n} href={NAV_HREFS[i]} className="text-xs font-bold uppercase tracking-[0.15em] hover:opacity-50">
+                  {n}
+                </a>
+              ))}
+            </nav>
+            <span className="text-xs font-bold uppercase tracking-[0.15em]">{t.est}</span>
+          </div>
+        </header>
+      </div>
 
       {/* Hero — asymetryczny grid */}
       <section className="border-b border-black">

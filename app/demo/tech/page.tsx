@@ -115,26 +115,29 @@ export default function ApexForgeDemo() {
     <div className="min-h-screen bg-[#FFF9E6] text-black" style={{ fontFamily: BODY }}>
       {/* eslint-disable-next-line @next/next/no-page-custom-font */}
       <link rel="stylesheet" href={FONTS} />
-      <DemoTopBar industry={topBarIndustry} />
+      {/* Pasek agencji + header firmy przewijają się razem jako jedna sticky całość */}
+      <div className="sticky top-0 z-[60]">
+        <DemoTopBar industry={topBarIndustry} />
 
-      {/* Header */}
-      <header className="border-b-4 border-black bg-[#CCFF00]">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-          <span className="border-4 border-black bg-black px-3 py-1 text-lg font-extrabold uppercase text-[#CCFF00]" style={{ fontFamily: HEAD }}>
-            Apex Forge
-          </span>
-          <nav className="hidden gap-6 md:flex">
-            {t.nav.map((n, i) => (
-              <a key={n} href={NAV_HREFS[i]} className="text-sm font-bold uppercase hover:underline">
-                {n}
-              </a>
-            ))}
-          </nav>
-          <a href="#kontakt" className="border-4 border-black bg-[#FF66C4] px-4 py-2 text-sm font-extrabold uppercase shadow-[5px_5px_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0_#000]">
-            {t.quoteCta}
-          </a>
-        </div>
-      </header>
+        {/* Header */}
+        <header className="border-b-4 border-black bg-[#CCFF00]">
+          <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+            <span className="border-4 border-black bg-black px-3 py-1 text-lg font-extrabold uppercase text-[#CCFF00]" style={{ fontFamily: HEAD }}>
+              Apex Forge
+            </span>
+            <nav className="hidden gap-6 md:flex">
+              {t.nav.map((n, i) => (
+                <a key={n} href={NAV_HREFS[i]} className="text-sm font-bold uppercase hover:underline">
+                  {n}
+                </a>
+              ))}
+            </nav>
+            <a href="#kontakt" className="border-4 border-black bg-[#FF66C4] px-4 py-2 text-sm font-extrabold uppercase shadow-[5px_5px_0_#000] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0_#000]">
+              {t.quoteCta}
+            </a>
+          </div>
+        </header>
+      </div>
 
       {/* Hero */}
       <section className="px-6 py-16">
