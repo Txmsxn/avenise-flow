@@ -250,31 +250,33 @@ export default function VoltDriveDemo() {
 
   return (
     <div className="min-h-screen bg-[#060B18] font-sans text-slate-300">
-      <DemoTopBar industry={topBarIndustry} />
+      {/* Pasek agencji + header firmy przewijają się razem jako jedna sticky całość */}
+      <div className="sticky top-0 z-[60]">
+        <DemoTopBar industry={topBarIndustry} />
 
-      {/* Header */}
-      <header className="border-b border-white/[0.06] bg-[#060B18]/85 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-2.5">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-[#00E5A0] to-[#00A3FF] text-black">
-              <Truck className="h-5 w-5" />
-            </span>
-            <span className="text-lg font-black tracking-tight text-white">
-              VOLT<span className="text-[#00E5A0]">DRIVE</span>
-            </span>
+        <header className="border-b border-white/[0.06] bg-[#060B18]/95 backdrop-blur-xl">
+          <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+            <div className="flex items-center gap-2.5">
+              <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-[#00E5A0] to-[#00A3FF] text-black">
+                <Truck className="h-5 w-5" />
+              </span>
+              <span className="text-lg font-black tracking-tight text-white">
+                VOLT<span className="text-[#00E5A0]">DRIVE</span>
+              </span>
+            </div>
+            <nav className="hidden gap-8 md:flex">
+              {t.nav.map((n, i) => (
+                <a key={n} href={`#${["flota", "uslugi", "sledzenie", "kontakt"][i]}`} className="text-sm font-semibold text-slate-400 hover:text-white">
+                  {n}
+                </a>
+              ))}
+            </nav>
+            <a href="#uslugi" className="rounded-full bg-[#00E5A0] px-5 py-2 text-sm font-bold text-black hover:bg-[#00c98d]">
+              {t.headerCta}
+            </a>
           </div>
-          <nav className="hidden gap-8 md:flex">
-            {t.nav.map((n, i) => (
-              <a key={n} href={`#${["flota", "uslugi", "sledzenie", "kontakt"][i]}`} className="text-sm font-semibold text-slate-400 hover:text-white">
-                {n}
-              </a>
-            ))}
-          </nav>
-          <a href="#uslugi" className="rounded-full bg-[#00E5A0] px-5 py-2 text-sm font-bold text-black hover:bg-[#00c98d]">
-            {t.headerCta}
-          </a>
-        </div>
-      </header>
+        </header>
+      </div>
 
       {/* Hero */}
       <section className="relative overflow-hidden px-6 pt-16 pb-20">
