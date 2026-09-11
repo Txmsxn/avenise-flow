@@ -56,7 +56,7 @@ export function Portfolio() {
           badge="Projekt komercyjny / Live"
           title="furmanreps.pl — Interaktywny Hub & Baza 1800+ Produktów"
           description="Dedykowany portal zbudowany od zera w Next.js. Przekształcenie rozproszonych danych w interaktywny serwis z wyszukiwaniem, filtrowaniem przedmiotów oraz autorskim konwerterem linków pod affiliate marketing."
-          tags={["Next.js", "Tailwind CSS", "UI/UX", "Dynamic Search", "Custom Tools"]}
+          tags={["Next.js", "Tailwind CSS", "Projekt interfejsu", "Wyszukiwarka na żywo", "Autorskie narzędzia"]}
           metrics={[
             { value: "1800+", label: "Baza Produktów" },
             { value: "Sub-sekundowy", label: "Czas reakcji" },
@@ -76,13 +76,13 @@ export function Portfolio() {
           badge="Autonomiczne demo / Transport & Logistyka"
           title="VoltDrive Logistics — cyber/dark tech dla firmy flotowej"
           description="Samodzielna strona firmy transportowej: własny header VoltDrive, hero z mapą trasy, kalkulator frachtu (waga + dystans → cena), panel śledzenia przesyłki i brandowana stopka. Głęboki granat, neonowe akcenty."
-          tags={["Own header/footer", "Kalkulator frachtu", "Tracking", "Dark neon"]}
+          tags={["Gotowa, samodzielna strona", "Kalkulator frachtu", "Śledzenie przesyłki", "Ciemny, techniczny styl"]}
           highlights={[
             { icon: Truck, label: "Pełna nawigacja i stopka w stylu marki" },
             { icon: Search, label: "Kalkulator + panel śledzenia przesyłki" },
           ]}
           demo={{ kind: "internal", href: "/demo/logistyka", label: "Zobacz Podgląd Demo" }}
-          visual={<IndustryVisual url="voltdrive.pl" icon={Truck} label="Fleet & Freight" tint="#00E5A0" />}
+          visual={<IndustryVisual url="voltdrive.pl" icon={Truck} label="Flota i transport" tint="#00E5A0" />}
         />
 
         {/* Projekt 3 — klinika */}
@@ -90,13 +90,13 @@ export function Portfolio() {
           badge="Autonomiczne demo / Medycyna & Usługi"
           title="Aura Dental Clinic — warm editorial dla kliniki"
           description="Kompletna strona kliniki: header z numerem rejestracji, hero z zespołem lekarzy i certyfikatami, rezerwacja wizyty z wyborem dnia i godziny, cennik zabiegów, FAQ medyczne i stopka z danymi placówki. Ciepła biel, szałwiowa zieleń, fonty szeryfowe."
-          tags={["Own header/footer", "Kalendarz rezerwacji", "Serif", "Light"]}
+          tags={["Gotowa, samodzielna strona", "Kalendarz rezerwacji", "Eleganckie fonty", "Jasny, ciepły motyw"]}
           highlights={[
             { icon: Stethoscope, label: "Zespół, certyfikaty, cennik, FAQ medyczne" },
             { icon: PlayCircle, label: "Rezerwacja: zabieg → dzień → godzina" },
           ]}
           demo={{ kind: "internal", href: "/demo/klinika", label: "Zobacz Podgląd Demo" }}
-          visual={<IndustryVisual url="auradental.pl" icon={Stethoscope} label="Booking system" tint="#34D399" />}
+          visual={<IndustryVisual url="auradental.pl" icon={Stethoscope} label="System rezerwacji" tint="#34D399" />}
         />
 
         {/* Projekt 4 — tech */}
@@ -105,9 +105,9 @@ export function Portfolio() {
           badge="Autonomiczne demo / B2B & Tech Studio"
           title="Apex Forge Software — neo-brutalizm dla software house'u"
           description="Krzykliwy landing agencji programistycznej: brutalistyczny header, hero z ogromną typografią, interaktywne porównanie Next.js vs WordPress, kafelki usług z ikonicznymi przyciskami i brandowana stopka. Żółć, róż, grube czarne ramki, twarde cienie."
-          tags={["Own header/footer", "border-4 border-black", "Perf compare", "Pop"]}
+          tags={["Gotowa, samodzielna strona", "Grube czarne ramki", "Porównanie szybkości", "Odważna kolorystyka"]}
           highlights={[
-            { icon: Code2, label: "Neo-brutalizm: hard shadows, blokowa typografia" },
+            { icon: Code2, label: "Odważny styl: mocne cienie, blokowa typografia" },
             { icon: Search, label: "Przełącznik wydajności Next.js vs WordPress" },
           ]}
           demo={{ kind: "internal", href: "/demo/tech", label: "Zobacz Podgląd Demo" }}
@@ -119,13 +119,13 @@ export function Portfolio() {
           badge="Autonomiczne demo / Design & Rzemiosło"
           title="Lumière Atelier — szwajcarski minimalizm dla atelier mebli"
           description="Luksusowa, minimalistyczna strona atelier meblowego: ścisła siatka, czarna typografia, brak cieni, czarno-biała galeria kolekcji i kalkulator wyceny projektu indywidualnego (kategoria + materiał + ilość → przedział cenowy)."
-          tags={["Own header/footer", "Grid system", "B&W", "Kalkulator wyceny"]}
+          tags={["Gotowa, samodzielna strona", "Precyzyjna siatka", "Czerń i biel", "Kalkulator wyceny"]}
           highlights={[
-            { icon: Palette, label: "Swiss / International Typographic Style" },
+            { icon: Palette, label: "Minimalizm inspirowany szwajcarskim designem" },
             { icon: Search, label: "Kalkulator projektu na wymiar" },
           ]}
           demo={{ kind: "internal", href: "/demo/luxury", label: "Zobacz Podgląd Demo" }}
-          visual={<IndustryVisual url="lumiere-atelier.pl" icon={Palette} label="Swiss minimal" tint="#A1A1AA" />}
+          visual={<IndustryVisual url="lumiere-atelier.pl" icon={Palette} label="Minimalizm szwajcarski" tint="#A1A1AA" />}
         />
 
         {/* Projekt 6 — energy */}
@@ -134,13 +134,13 @@ export function Portfolio() {
           badge="Autonomiczne demo / OZE & Energia"
           title="EcoPulse Energy — soft glassmorphism dla firmy OZE"
           description="Przyjazna strona firmy fotowoltaicznej: szklane karty z rozmyciem, pastelowe gradienty, wykres produkcji energii i symulator oszczędności (rachunek + typ instalacji + powierzchnia → oszczędność, zwrot, redukcja CO₂)."
-          tags={["Own header/footer", "backdrop-blur", "Symulator", "Wykresy"]}
+          tags={["Gotowa, samodzielna strona", "Szklane, rozmyte karty", "Symulator", "Wykresy"]}
           highlights={[
-            { icon: Layers, label: "Glassmorphism: rozmycie, warstwy, zaokrąglenia" },
+            { icon: Layers, label: "Miękkie, przezroczyste karty i zaokrąglenia" },
             { icon: Search, label: "Symulator oszczędności z PV / pompy ciepła" },
           ]}
           demo={{ kind: "internal", href: "/demo/energy", label: "Zobacz Podgląd Demo" }}
-          visual={<IndustryVisual url="ecopulse.pl" icon={Layers} label="Savings simulator" tint="#38BDF8" />}
+          visual={<IndustryVisual url="ecopulse.pl" icon={Layers} label="Symulator oszczędności" tint="#38BDF8" />}
         />
       </div>
 
