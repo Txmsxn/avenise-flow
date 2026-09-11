@@ -23,10 +23,11 @@ Zgłoszenia z formularza (`app/api/contact/route.ts`) idą e-mailem na
 1. Załóż konto na resend.com, wygeneruj klucz w **API Keys**.
 2. Skopiuj `.env.example` → `.env.local` i wklej `RESEND_API_KEY=...`.
 3. Na Vercel: **Project → Settings → Environment Variables** → dodaj `RESEND_API_KEY`
-   (Production + Preview), zrób redeploy.
-4. Domyślnie nadawcą jest testowy adres Resend (`onboarding@resend.dev`). Aby
-   wysyłać z `avenise-flow.pl`, zweryfikuj domenę w Resend (Domains → rekordy DNS)
-   i ustaw `CONTACT_FROM=Formularz <formularz@avenise-flow.pl>`.
+   oraz `CONTACT_FROM=AveniseFlow <kontakt@avenise-flow.pl>` (Production + Preview),
+   zrób redeploy.
+
+Domena `avenise-flow.pl` jest **zweryfikowana w Resend** (DNS: SPF + DKIM), więc
+maile wychodzą bezpośrednio z jej adresu — zweryfikowane end-to-end, działa.
 
 Bez `RESEND_API_KEY` endpoint zwraca 503, a formularz pokazuje komunikat z prośbą
 o kontakt bezpośredni — reszta strony działa normalnie.
